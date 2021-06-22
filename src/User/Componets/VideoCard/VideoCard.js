@@ -36,7 +36,7 @@ function VideoCard(item) {
       pathname: `/watch/${item._id}`
     }}>
     <div className="videoCard">
-      <img className="videoCard_thumbnail" src={'/Thumbanails/'+item._id+".jpg"} alt="" />
+      <img className="videoCard_thumbnail" src={'https://y-clone.xyz/Thumbanails/'+item._id+".jpg"} alt="" />
       <div className="videoCard_info">
         <Avatar className="videoCard_avatar" alt={item.channelName} src={item.channelImage} />
         <div className="video_text">

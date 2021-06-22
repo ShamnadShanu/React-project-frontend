@@ -23,7 +23,7 @@ function Playlists(props) {
   let [visibility,setVisibility]=useState()
   let [playlists,setPlaylists]=useState()
   useEffect(()=>{
-      axios.post('/getPlaylists',{channelId:props.channelId}).then((response)=>{
+      axios.post('https://y-clone.xyz/getPlaylists',{channelId:props.channelId}).then((response)=>{
           setPlaylists(response.data)
           console.log(response.data);
 
@@ -155,7 +155,7 @@ playlistId={that}
               }} style={{ minWidth: "9rem", maxHeight: "5rem" }} className="optuin">
                 {item.videos?<img
                   style={{ minWidth: "9rem", maxHeight: "5rem" }}
-                  src={'/Thumbanails/'+item.videos[item.videos.length-1]+".jpg"}
+                  src={'https://y-clone.xyz/Thumbanails/'+item.videos[item.videos.length-1]+".jpg"}
                   alt=""
                 />:<div style={{ minWidth: "9rem", maxHeight: "5rem" }}><p style={{marginLeft:"0"}}>No Videos</p></div>}
 

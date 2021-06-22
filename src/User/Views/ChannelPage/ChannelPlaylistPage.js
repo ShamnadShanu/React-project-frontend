@@ -14,7 +14,7 @@ function ChannelPlaylistPage() {
   let [channelId,setChannelId]=useState()
   let [subscriberCount,setSubscriberCount]=useState()
   useEffect(()=>{
-axios.post('/getChannel',{},{
+axios.post('https://y-clone.xyz/getChannel',{},{
   headers:{
     "x-access-token": localStorage.getItem("token")
   }

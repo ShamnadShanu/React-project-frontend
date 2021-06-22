@@ -36,7 +36,7 @@ setBlock("This account is blocked")
               if(location.state.red){
                 axios
                 .post(
-                  "/subscribe",
+                  "https://y-clone.xyz/subscribe",
                   { channelId:location.state.red.channelId},
                   {
                     headers: {
@@ -52,7 +52,7 @@ setBlock("This account is blocked")
               }else if(location.state.redl){
                 axios
                 .post(
-                  "/like",
+                  "https://y-clone.xyz/like",
                   { videoId: props.props.props.item._id },
                   {
                     headers: {
@@ -68,7 +68,7 @@ setBlock("This account is blocked")
               }else if(location.state.reds){
                 axios
                 .post(
-                  "/dislike",
+                  "https://y-clone.xyz/dislike",
                   { videoId: props.props.props.item._id },
                   {
                     headers: {
@@ -103,7 +103,7 @@ setBlock("This account is blocked")
       profile: response.profileObj.imageUrl,
       method: "Google",
     };
-    axios.post("/login", data, { headers: headers }).then((data) => {
+    axios.post("https://y-clone.xyz/login", data, { headers: headers }).then((data) => {
       if (data.data) {
         if(data.data.block){
           setBlock("This account is blocked")
@@ -116,7 +116,7 @@ setBlock("This account is blocked")
         if(location.state.red){
           axios
           .post(
-            "/subscribe",
+            "https://y-clone.xyz/subscribe",
             { channelId:location.state.red.channelId},
             {
               headers: {
@@ -133,7 +133,7 @@ setBlock("This account is blocked")
         }else if(location.state.redl){
           axios
           .post(
-            "/like",
+            "https://y-clone.xyz/like",
             { videoId: location.state.redl._id },
             {
               headers: {
@@ -150,7 +150,7 @@ setBlock("This account is blocked")
         }else if(location.state.reds){
           axios
           .post(
-            "/dislike",
+            "https://y-clone.xyz/dislike",
             { videoId: location.state.reds._id },
             {
               headers: {
@@ -203,7 +203,7 @@ setBlock("This account is blocked")
             e.preventDefault();
             console.log("fd");
             axios
-              .post("/login", {
+              .post("https://y-clone.xyz/login", {
                 email: email,
                 password: pass,
               })
@@ -221,7 +221,7 @@ setBlock("This account is blocked")
                       if(location.state.red){
                         axios
                         .post(
-                          "/subscribe",
+                          "https://y-clone.xyz/subscribe",
                           { channelId:location.state.red.channelId},
                           {
                             headers: {
@@ -238,7 +238,7 @@ setBlock("This account is blocked")
                       }else if(location.state.redl){
                         axios
                         .post(
-                          "/like",
+                          "https://y-clone.xyz/like",
                           { videoId: location.state.redl._id },
                           {
                             headers: {
@@ -254,7 +254,7 @@ setBlock("This account is blocked")
                       }else if(location.state.reds){
                         axios
                         .post(
-                          "/dislike",
+                          "https://y-clone.xyz/dislike",
                           { videoId: location.state.reds._id },
                           {
                             headers: {

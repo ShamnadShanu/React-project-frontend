@@ -15,7 +15,7 @@ function PlaylistCard({id,title,count,image}) {
                <img
                   
                   
-                  src={'/Thumbanails/'+image+".jpg"}
+                  src={'https://y-clone.xyz/Thumbanails/'+image+".jpg"}
                 //   {'/Thumbanails/'+item.videos[item.videos.length-1]+".jpg"}
                 
                 />

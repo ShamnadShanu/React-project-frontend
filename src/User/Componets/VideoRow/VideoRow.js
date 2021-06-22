@@ -11,7 +11,7 @@ function VideoRow({views,description,timestamp,channel,title,image}) {
     }
     return (
         <div className="videoRow">
-            <img src={'/Thumbanails/'+image+".jpg"} alt="" />
+            <img src={'https://y-clone.xyz/Thumbanails/'+image+".jpg"} alt="" />
             <div className="videoRow__text">
                 <h3>{title}</h3>
                 <p className="videoRow__headline">

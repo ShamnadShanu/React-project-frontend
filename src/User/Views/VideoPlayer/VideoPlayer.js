@@ -10,7 +10,7 @@ function VideoPlayer(props) {
   let { id } = useParams();
   let [state,setState]=useState()
   useState(()=>{
-axios.post('/getTheVideo',{videoId:id}).then((response)=>{
+axios.post('https://y-clone.xyz/getTheVideo',{videoId:id}).then((response)=>{
   console.log(response.data);
 setState(response.data)
 })

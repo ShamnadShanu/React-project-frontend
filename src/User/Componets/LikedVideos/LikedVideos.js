@@ -6,7 +6,7 @@ import './LikedVideos.css'
 function LikedVideos() {
     const [videos,setVideos]=useState()
     useEffect(()=>{
-axios.post('/liked-videos',{},{
+axios.post('https://y-clone.xyz/liked-videos',{},{
     headers: {
         "x-access-token": localStorage.getItem("token"),
       },

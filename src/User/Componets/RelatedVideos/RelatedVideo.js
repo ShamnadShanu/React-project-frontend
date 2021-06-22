@@ -22,7 +22,7 @@ function RelatedVideo(props) {
   useEffect(() => {
     axios
       .post(
-        "/related",
+        "https://y-clone.xyz/related",
         {
           category: props.props.category,
           current: props.props.title,
@@ -58,7 +58,7 @@ function RelatedVideo(props) {
               }} className="related">
                 <div className="related_videothumbanail">
                   <img
-                    src={"/Thumbanails/" + item._id + ".jpg"}
+                    src={"https://y-clone.xyz/Thumbanails/" + item._id + ".jpg"}
                     alt="thumbnail"
                   />
                 </div>

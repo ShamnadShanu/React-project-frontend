@@ -11,7 +11,7 @@ export default function Search(props) {
     // setState(searchTerm);
     useEffect(()=>{
         axios
-        .post("/search", { input: searchTerm },{
+        .post("https://y-clone.xyz/search", { input: searchTerm },{
            headers: {
           "x-access-token": localStorage.getItem("token"),
         },})

@@ -7,7 +7,7 @@ import './Subscription.css'
 function Subscription() {
   let [channel, setChannel] = useState([]);
   useEffect(() => {
-    axios.post("/get-subscribers",{},{
+    axios.post("https://y-clone.xyz/get-subscribers",{},{
       headers: {
         "x-access-token": localStorage.getItem("token"),
       },

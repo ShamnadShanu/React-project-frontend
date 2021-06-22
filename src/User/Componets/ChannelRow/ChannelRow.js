@@ -31,7 +31,7 @@ function ChannelRow({subscribed,channelId,image,channel,subs,verified,noOfVideos
               onClick={() => {
                 axios
                   .post(
-                    "/unsubscribe",
+                    "https://y-clone.xyz/unsubscribe",
                     { channelId:channelId},
                     {
                       headers: {
@@ -53,7 +53,7 @@ function ChannelRow({subscribed,channelId,image,channel,subs,verified,noOfVideos
               onClick={() => {
               {localStorage.getItem('token') ?axios
                   .post(
-                    "/subscribe",
+                    "https://y-clone.xyz/subscribe",
                     { channelId:channelId},
                     {
                       headers: {

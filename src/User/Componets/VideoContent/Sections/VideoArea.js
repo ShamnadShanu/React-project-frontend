@@ -11,7 +11,7 @@ function VideoArea(props) {
   // setState(props)
   useEffect(() => {
     axios.post(
-      "/views",
+      "https://y-clone.xyz/views",
       { videoId: props.props._id },
       { headers: { "x-access-token": localStorage.getItem("token") } }
     );
@@ -21,7 +21,7 @@ function VideoArea(props) {
       <div className="video_div">
         <video autoPlay className="video_area" controls>
           <source
-            src={"/Videos/" + props.props._id + ".mp4"}
+            src={"https://y-clone.xyz/Videos/" + props.props._id + ".mp4"}
             type="video/mp4"
           />
         </video>

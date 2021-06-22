@@ -18,7 +18,7 @@ function ChannelViewVideosPage(props) {
   useEffect(() => {
     axios
       .post(
-        "/channelview",
+        "https://y-clone.xyz/channelview",
         {
           channelId: props.location.state.channelId,
         },
@@ -67,7 +67,7 @@ function ChannelViewVideosPage(props) {
               onClick={() => {
                 axios
                   .post(
-                    "/unsubscribe",
+                    "https://y-clone.xyz/unsubscribe",
                     { channelId: props.location.state.channelId },
                     {
                       headers: {
@@ -89,7 +89,7 @@ function ChannelViewVideosPage(props) {
               onClick={() => {
               {localStorage.getItem('token') ?axios
                   .post(
-                    "/subscribe",
+                    "https://y-clone.xyz/subscribe",
                     { channelId:props.location.state.channelId },
                     {
                       headers: {

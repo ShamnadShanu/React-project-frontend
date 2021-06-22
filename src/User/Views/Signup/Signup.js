@@ -31,7 +31,7 @@ function Signup() {
       profile: response.picture.data.url,
       method: "Facebook",
     };
-    axios.post("/signup", data, { headers: headers }).then((data) => {
+    axios.post("https://y-clone.xyz/signup", data, { headers: headers }).then((data) => {
       if (data.data) {
         console.log(data.data);
         localStorage.setItem("token", data.data.token);
@@ -41,7 +41,7 @@ function Signup() {
           if (location.state.red) {
             axios
               .post(
-                "/subscribe",
+                "https://y-clone.xyz/subscribe",
                 { channelId: location.state.red.channelId },
                 {
                   headers: {
@@ -58,7 +58,7 @@ function Signup() {
           } else if (location.state.redl) {
             axios
               .post(
-                "/like",
+                "https://y-clone.xyz/like",
                 { videoId:location.state.redl._id },
                 {
                   headers: {
@@ -75,7 +75,7 @@ function Signup() {
           } else if (location.state.reds) {
             axios
               .post(
-                "/dislike",
+                "https://y-clone.xyz/dislike",
                 { videoId: location.state.reds._id },
                 {
                   headers: {
@@ -109,7 +109,7 @@ function Signup() {
       profile: response.profileObj.imageUrl,
       method: "Google",
     };
-    axios.post("/signup", data, { headers: headers }).then((data) => {
+    axios.post("https://y-clone.xyz/signup", data, { headers: headers }).then((data) => {
       if (data.data) {
         console.log(data.data);
         localStorage.setItem("token", data.data.token);
@@ -119,7 +119,7 @@ function Signup() {
           if (location.state.red) {
             axios
               .post(
-                "/subscribe",
+                "https://y-clone.xyz/subscribe",
                 { channelId: location.state.red.channelId },
                 {
                   headers: {
@@ -135,7 +135,7 @@ function Signup() {
           } else if (location.state.redl) {
             axios
               .post(
-                "/like",
+                "https://y-clone.xyz/like",
                 { videoId: location.state.redl._id },
                 {
                   headers: {
@@ -152,7 +152,7 @@ function Signup() {
           } else if (location.state.reds) {
             axios
               .post(
-                "/dislike",
+                "https://y-clone.xyz/dislike",
                 { videoId: location.state.reds._id },
                 {
                   headers: {
@@ -200,7 +200,7 @@ function Signup() {
           onSubmit={(e) => {
             e.preventDefault();
             console.log("fd");
-            axios.post("/signup", data).then((data) => {
+            axios.post("https://y-clone.xyz/signup", data).then((data) => {
               if (data.data) {
                 console.log(data.data);
                 localStorage.setItem("token", data.data.token);
@@ -210,7 +210,7 @@ function Signup() {
                   if (location.state.red) {
                     axios
                       .post(
-                        "/subscribe",
+                        "https://y-clone.xyz/subscribe",
                         { channelId: location.state.red.channelId },
                         {
                           headers: {
@@ -227,7 +227,7 @@ function Signup() {
                   } else if (location.state.redl) {
                     axios
                       .post(
-                        "/like",
+                        "https://y-clone.xyz/like",
                         { videoId:location.state.redl._id },
                         {
                           headers: {
@@ -244,7 +244,7 @@ function Signup() {
                   } else if (location.state.reds) {
                     axios
                       .post(
-                        "/dislike",
+                        "https://y-clone.xyz/dislike",
                         { videoId: location.state.reds._id },
                         {
                           headers: {
