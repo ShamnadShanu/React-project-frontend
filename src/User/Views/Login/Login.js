@@ -18,7 +18,7 @@ export default function Login(props) {
   const responseFacebook = (response) => {
     console.log(response);
     axios
-      .post("/login", {
+      .post("https://y-clone.xyz/login", {
         name: response.name,
         email: response.email,
         profile: response.picture.data.url,
