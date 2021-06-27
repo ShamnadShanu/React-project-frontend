@@ -34,7 +34,7 @@ setChannelImg(URL.createObjectURL(e.target.files[0]))
                 channelImage:channelImg,
             }
             console.log(data);
-            axios.post('/createChannel/',{data},{
+            axios.post('https://y-clone.xyz/createChannel/',{data},{
                 headers:{
                   "x-access-token": localStorage.getItem("token")
                 }
