@@ -135,7 +135,7 @@ setBlock("This account is blocked")
         }else if(location.state.redl){
           axios
           .post(
-            server,"/like",
+            server+"/like",
             { videoId: location.state.redl._id },
             {
               headers: {
@@ -152,7 +152,7 @@ setBlock("This account is blocked")
         }else if(location.state.reds){
           axios
           .post(
-            server,"/dislike",
+            server+"/dislike",
             { videoId: location.state.reds._id },
             {
               headers: {
