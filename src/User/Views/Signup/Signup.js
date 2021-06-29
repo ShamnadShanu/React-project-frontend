@@ -43,7 +43,7 @@ function Signup() {
           if (location.state.red) {
             axios
               .post(
-                server,"/subscribe",
+                server+"/subscribe",
                 { channelId: location.state.red.channelId },
                 {
                   headers: {
