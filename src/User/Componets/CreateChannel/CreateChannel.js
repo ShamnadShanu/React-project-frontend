@@ -37,7 +37,7 @@ setChannelIMG(e.target.files[0])
             data.append("channelName", Cname);
             data.append("channelImage", channelIMG);
             console.log(data);
-            axios.post(server+'/createChannel/',{data},{
+            axios.post(server+'/createChannel',{data},{
                 headers:{
                   "x-access-token": localStorage.getItem("token")
                 }
