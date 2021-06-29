@@ -3,11 +3,12 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ChannelRow from "../ChannelRow/ChannelRow";
 import './Subscription.css'
-
+// const server="http://localhost:8000/"
+const server="https://y-clone.xyz/"
 function Subscription() {
   let [channel, setChannel] = useState([]);
   useEffect(() => {
-    axios.post("https://y-clone.xyz/get-subscribers",{},{
+    axios.post(server,"/get-subscribers",{},{
       headers: {
         "x-access-token": localStorage.getItem("token"),
       },

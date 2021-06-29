@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { useEffect} from "react";
 import VideoInfo from "./VideoInfo";
 import '../VideoContent.css'
-
+// const server="http://localhost:8000/"
+const server="https://y-clone.xyz/"
 
 
 function VideoArea(props) {
@@ -11,7 +12,7 @@ function VideoArea(props) {
   // setState(props)
   useEffect(() => {
     axios.post(
-      "https://y-clone.xyz/views",
+      server,"/views",
       { videoId: props.props._id },
       { headers: { "x-access-token": localStorage.getItem("token") } }
     );
@@ -21,7 +22,7 @@ function VideoArea(props) {
       <div className="video_div">
         <video autoPlay className="video_area" controls>
           <source
-            src={"https://y-clone.xyz/Videos/" + props.props._id + ".mp4"}
+            src={server,"/Videos/" + props.props._id + ".mp4"}
             type="video/mp4"
           />
         </video>

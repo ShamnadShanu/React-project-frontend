@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import PlaylistCard from "../PlaylistCard/PlaylistCard";
-import { InputLabel, Modal } from "@material-ui/core";
+import { Modal } from "@material-ui/core";
 import PlaylistRow from "../Plylist/PlaylistRow";
+// const server="http://localhost:8000/"
+const server="https://y-clone.xyz/"
 
 function PlaylistSection(props) {
   let [view, setview] = useState();
@@ -10,7 +12,7 @@ function PlaylistSection(props) {
   useEffect(() => {
     axios
       .post(
-        "/Channel_view-playlist",
+        server,"/Channel_view-playlist",
         { data: props.channelId },
         {
           headers: {

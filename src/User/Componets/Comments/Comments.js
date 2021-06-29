@@ -7,6 +7,8 @@ import axios from "axios";
 import Moment from "react-moment";
 import "moment-timezone";
 import { useHistory } from "react-router";
+// const server="http://localhost:8000/"
+const server="https://y-clone.xyz/"
 
 function Comments(props) {
   let history = useHistory();
@@ -22,7 +24,7 @@ function Comments(props) {
   useEffect(() => {
     axios
       .post(
-        "/getAllComment",
+       server,"/getAllComment",
         { videoId: props.item._id },
         {
           headers: {
@@ -36,7 +38,7 @@ function Comments(props) {
       });
     axios
       .post(
-        "/",
+        server,
         {},
         {
           headers: {
@@ -93,7 +95,7 @@ function Comments(props) {
             if (AddedCommet) {
               axios
                 .post(
-                  "/comment",
+                  server,"/comment",
                   { Comment: AddedCommet, videoId: props.item._id },
                   {
                     headers: {
@@ -142,7 +144,7 @@ function Comments(props) {
                       onClick={() => {
                         axios
                           .post(
-                            "/comment-unlike",
+                           server,"/comment-unlike",
                             { commentId: item._id },
                             {
                               headers: {
@@ -169,7 +171,7 @@ function Comments(props) {
                           localStorage.getItem("token")
                             ? axios
                                 .post(
-                                  "/comment-like",
+                                  server,"/comment-like",
                                   { commentId: item._id },
                                   {
                                     headers: {
@@ -208,7 +210,7 @@ function Comments(props) {
                       onClick={() => {
                         axios
                           .post(
-                            "/comment-undislike",
+                            server,"/comment-undislike",
                             {
                               commentId: item._id,
                             },
@@ -238,7 +240,7 @@ function Comments(props) {
                         localStorage.getItem("token")
                           ? axios
                               .post(
-                                "/comment-dislike",
+                                server,"/comment-dislike",
                                 { commentId: item._id },
                                 {
                                   headers: {

@@ -5,6 +5,8 @@ import "./ChannelViewPage.css";
 import Button from "@material-ui/core/Button";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
+// const server="http://localhost:8000/"
+const server="https://y-clone.xyz/"
 
 function ChannelViewPage(props) {
     let history=useHistory()
@@ -17,7 +19,7 @@ function ChannelViewPage(props) {
   useEffect(() => {
     axios
       .post(
-        "https://y-clone.xyz/channelview",
+        server,"/channelview",
         {
           channelId: props.location.state.channelId,
         },
@@ -63,7 +65,7 @@ function ChannelViewPage(props) {
               onClick={() => {
                 axios
                   .post(
-                    "https://y-clone.xyz/unsubscribe",
+                    server,"/unsubscribe",
                     { channelId: props.location.state.channelId },
                     {
                       headers: {
@@ -85,7 +87,7 @@ function ChannelViewPage(props) {
               onClick={() => {
               {localStorage.getItem('token') ?axios
                   .post(
-                    "https://y-clone.xyz/subscribe",
+                    server,"/subscribe",
                     { channelId:props.location.state.channelId },
                     {
                       headers: {

@@ -10,7 +10,8 @@ import Badge from '@material-ui/core/Badge';
 import { Link } from "react-router-dom";
 import Menu from "../Menu/Menu";
 import axios from "axios";
-
+const server="https://y-clone.xyz/"
+// const server="http://localhost:8000/"
 export default function Header(props) {
   const history = useHistory();
   const [state, setstate] = useState([]);
@@ -19,7 +20,7 @@ export default function Header(props) {
   useEffect(() => {
     axios
       .post(
-        "https://y-clone.xyz/",
+        server,
         {},
         {
           headers: {

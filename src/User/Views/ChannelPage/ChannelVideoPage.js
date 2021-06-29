@@ -6,6 +6,8 @@ import Button from "@material-ui/core/Button";
 import ChannelVideos from "../../Componets/ChannelVideos/ChannelVideos";
 import { Link } from "react-router-dom";
 import axios from "axios";
+// const server="http://localhost:8000/"
+const server="https://y-clone.xyz/"
 
 function ChannelVideoPage() {
   let [channelName, setChannelName] = useState();
@@ -16,7 +18,7 @@ function ChannelVideoPage() {
   useEffect(() => {
     axios
       .post(
-        "/getChannel",
+        server,"/getChannel",
         {},
         {
           headers: {

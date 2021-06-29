@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import Modal from 'react-responsive-modal'
 import UploadVideo from "../../Componets/UploadVideo/UploadVideo";
 import axios from "axios";
+// const server="http://localhost:8000/"
+const server="https://y-clone.xyz/"
 
 
 function ChannelPage() {
@@ -17,7 +19,7 @@ function ChannelPage() {
   let [subscriberCount,setSubscriberCount]=useState()
 
   useEffect(()=>{
-axios.post('https://y-clone.xyz/getChannel',{},{
+axios.post(server,'/getChannel',{},{
   headers:{
     "x-access-token": localStorage.getItem("token")
   }

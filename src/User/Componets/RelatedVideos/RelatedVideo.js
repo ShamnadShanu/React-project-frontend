@@ -3,6 +3,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./RelatedVideo.css";
 import Moment from "react-moment";
+// const server="http://localhost:8000/"
+const server="https://y-clone.xyz/"
 
 function RelatedVideo(props) {
   let history=useHistory()
@@ -22,7 +24,7 @@ function RelatedVideo(props) {
   useEffect(() => {
     axios
       .post(
-        "https://y-clone.xyz/related",
+        server,"/related",
         {
           category: props.props.category,
           current: props.props.title,
@@ -58,7 +60,7 @@ function RelatedVideo(props) {
               }} className="related">
                 <div className="related_videothumbanail">
                   <img
-                    src={"https://y-clone.xyz/Thumbanails/" + item._id + ".jpg"}
+                    src={server,"/Thumbanails/" + item._id + ".jpg"}
                     alt="thumbnail"
                   />
                 </div>

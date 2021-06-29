@@ -5,6 +5,8 @@ import VerifiedIcon from "@material-ui/icons/CheckCircleOutlineOutlined"
 import Button from "@material-ui/core/Button";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
+// const server="http://localhost:8000/"
+const server="https://y-clone.xyz/"
 function ChannelRow({subscribed,channelId,image,channel,subs,verified,noOfVideos,description}) {
     let history=useHistory()
     let [Subscribed,setSubscribed]=useState(subscribed)
@@ -31,7 +33,7 @@ function ChannelRow({subscribed,channelId,image,channel,subs,verified,noOfVideos
               onClick={() => {
                 axios
                   .post(
-                    "https://y-clone.xyz/unsubscribe",
+                    server,"/unsubscribe",
                     { channelId:channelId},
                     {
                       headers: {
@@ -53,7 +55,7 @@ function ChannelRow({subscribed,channelId,image,channel,subs,verified,noOfVideos
               onClick={() => {
               {localStorage.getItem('token') ?axios
                   .post(
-                    "https://y-clone.xyz/subscribe",
+                    server,"/subscribe",
                     { channelId:channelId},
                     {
                       headers: {

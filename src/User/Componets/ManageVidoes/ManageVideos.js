@@ -9,13 +9,15 @@ import LongMenu from "./dot";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Moment from "react-moment";
+// const server="http://localhost:8000/"
+const server="https://y-clone.xyz/"
 
 function ManageVideos(props) {
   let [videos, setVideos] = useState();
   useEffect(() => {
     axios
       .post(
-        "/manageChannel",
+        server,"/manageChannel",
         { data: props.location.state.channelId },
         {
           headers: {
@@ -57,7 +59,7 @@ function ManageVideos(props) {
                         <div style={{ width: "10rem" }} className="optui">
                           <img
                             style={{minWidth: "9rem",maxHeight:"5rem" }}
-                            src={"/Thumbanails/" + item._id + ".jpg"}
+                            src={server,"/Thumbanails/" + item._id + ".jpg"}
                             alt=""
                           />
                           <LongMenu  item={item}/>
@@ -71,7 +73,7 @@ function ManageVideos(props) {
                             id="demo-simple-select"
                             value={item.visibility}
                             onChange={(e) => {
-                              axios.post('/changevisibility',{channelId:props.location.state.channelId ,videoId:item._id,visibility:e.target.value},{
+                              axios.post(server,'/changevisibility',{channelId:props.location.state.channelId ,videoId:item._id,visibility:e.target.value},{
                                 headers: {
                                   "x-access-token": localStorage.getItem("token"),
                                 },

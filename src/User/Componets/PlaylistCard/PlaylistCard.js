@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import PlaylistPlayIcon from "@material-ui/icons/PlaylistPlay";
 import "./PlaylistCard.css"
-
-
-
+// const server="http://localhost:8000/"
+const server="https://y-clone.xyz/"
 
 function PlaylistCard({id,title,count,image}) {
     return (
@@ -15,7 +14,7 @@ function PlaylistCard({id,title,count,image}) {
                <img
                   
                   
-                  src={'https://y-clone.xyz/Thumbanails/'+image+".jpg"}
+                  src={server,'/Thumbanails/'+image+".jpg"}
                 //   {'/Thumbanails/'+item.videos[item.videos.length-1]+".jpg"}
                 
                 />

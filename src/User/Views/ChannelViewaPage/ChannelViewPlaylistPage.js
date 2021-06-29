@@ -8,6 +8,8 @@ import axios from "axios";
 import ChannelViewVideos from '../../Componets/ChannelViewVideos/ChannelViewVideos'
 import PlaylistCard from "../../Componets/PlaylistCard/PlaylistCard";
 import PlaylistSection from "../../Componets/PlaylistSection/PlaylistSection";
+// const server="http://localhost:8000/"
+const server="https://y-clone.xyz/"
 function ChannelViewPlaylistPage(props) {
     let history=useHistory()
   let [channelName, setChannelName] = useState();
@@ -18,7 +20,7 @@ function ChannelViewPlaylistPage(props) {
   useEffect(() => {
     axios
       .post(
-        "https://y-clone.xyz/channelview",
+      server,"/channelview",
         {
           channelId: props.location.state.channelId,
         },
@@ -66,7 +68,7 @@ function ChannelViewPlaylistPage(props) {
                 onClick={() => {
                   axios
                     .post(
-                      "https://y-clone.xyz/unsubscribe",
+                      server,"/unsubscribe",
                       { channelId: props.location.state.channelId },
                       {
                         headers: {
@@ -88,7 +90,7 @@ function ChannelViewPlaylistPage(props) {
                 onClick={() => {
                 {localStorage.getItem('token') ?axios
                     .post(
-                      "https://y-clone.xyz/subscribe",
+                      server,"/subscribe",
                       { channelId:props.location.state.channelId },
                       {
                         headers: {

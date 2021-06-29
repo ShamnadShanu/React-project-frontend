@@ -12,6 +12,8 @@ import "./ManageVideos.css";
 import axios from 'axios';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
+// const server="http://localhost:8000/"
+const server="https://y-clone.xyz/"
 
 
 
@@ -21,7 +23,7 @@ export default function LongMenu(props) {
   let [Error, setError] = useState();
   let [playlist,setPlaylist]=useState()
   useEffect(()=>{
-    axios.post('/getPlaylists',{channelId:props.item.channelId}).then((response)=>{
+    axios.post(server,'/getPlaylists',{channelId:props.item.channelId}).then((response)=>{
       setPlaylist(response.data)
       console.log(response.data,"playlist");
 
@@ -88,7 +90,7 @@ export default function LongMenu(props) {
 setIsModel(true)
           }}>Edit</MenuItem>
           <MenuItem onClick={()=>{
-            axios.post('/deletevideos',{videoId:props.item._id}).then(()=>{
+            axios.post(server,'/deletevideos',{videoId:props.item._id}).then(()=>{
               window.location.reload()
             })
           }}>Delete</MenuItem>
@@ -105,7 +107,7 @@ setIsModel(true)
                 {playlist&&playlist.map((item, index) => {
           return (
             <MenuItem onClick={()=>{
-              axios.post('/addtoPlaylist',{playlistId:item._id,videoId:props.item._id}).then((response)=>{
+              axios.post(server,'/addtoPlaylist',{playlistId:item._id,videoId:props.item._id}).then((response)=>{
                 if(response.data){
                   window.location.reload()
 

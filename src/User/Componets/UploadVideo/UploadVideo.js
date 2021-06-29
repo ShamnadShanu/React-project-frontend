@@ -9,6 +9,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+// const server="http://localhost:8000/"
+const server="https://y-clone.xyz/"
 function UploadVideo(props) {
   let settime= ()=>{
     setTimeout(() => {
@@ -116,7 +118,7 @@ setState(percent)
               data.append("videothumbanail", thumbanail);
               console.log(data);
               axios
-                .post("https://y-clone.xyz/upload-video/", data,options)
+                .post(server,"/upload-video/", data,options)
                 .then((response) => {
                   console.log(response);
                   setState(100)

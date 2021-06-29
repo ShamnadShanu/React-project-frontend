@@ -7,6 +7,8 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Playlists from "../../Componets/Playlists/Playlists";
+// const server="http://localhost:8000/"
+const server="https://y-clone.xyz/"
 
 function ChannelPlaylistPage() {
   let [channelName,setChannelName]=useState()
@@ -14,7 +16,7 @@ function ChannelPlaylistPage() {
   let [channelId,setChannelId]=useState()
   let [subscriberCount,setSubscriberCount]=useState()
   useEffect(()=>{
-axios.post('https://y-clone.xyz/getChannel',{},{
+axios.post(server,'/getChannel',{},{
   headers:{
     "x-access-token": localStorage.getItem("token")
   }

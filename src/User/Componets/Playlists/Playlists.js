@@ -11,6 +11,8 @@ import { InputLabel, Modal } from "@material-ui/core";
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
 import PlaylistRow from "../Plylist/PlaylistRow";
+// const server="http://localhost:8000/"
+const server="https://y-clone.xyz/"
 
 function Playlists(props) {
 
@@ -23,7 +25,7 @@ function Playlists(props) {
   let [visibility,setVisibility]=useState()
   let [playlists,setPlaylists]=useState()
   useEffect(()=>{
-      axios.post('https://y-clone.xyz/getPlaylists',{channelId:props.channelId}).then((response)=>{
+      axios.post(server,'/getPlaylists',{channelId:props.channelId}).then((response)=>{
           setPlaylists(response.data)
           console.log(response.data);
 
@@ -155,7 +157,7 @@ playlistId={that}
               }} style={{ minWidth: "9rem", maxHeight: "5rem" }} className="optuin">
                 {item.videos?<img
                   style={{ minWidth: "9rem", maxHeight: "5rem" }}
-                  src={'https://y-clone.xyz/Thumbanails/'+item.videos[item.videos.length-1]+".jpg"}
+                  src={server,'/Thumbanails/'+item.videos[item.videos.length-1]+".jpg"}
                   alt=""
                 />:<div style={{ minWidth: "9rem", maxHeight: "5rem" }}><p style={{marginLeft:"0"}}>No Videos</p></div>}
 
@@ -178,7 +180,7 @@ playlistId={that}
                             id="demo-simple-select"
                             value={item.visibility}
                             onChange={(e) => {
-                              axios.post('/changePlaylistvisibility',{playlistId:item._id,visibility:e.target.value,channelId:item.channelId},{
+                              axios.post(server,'/changePlaylistvisibility',{playlistId:item._id,visibility:e.target.value,channelId:item.channelId},{
                                 headers: {
                                   "x-access-token": localStorage.getItem("token"),
                                 },

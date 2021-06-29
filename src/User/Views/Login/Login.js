@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
+// const server="http://localhost:8000/"
+const server="https://y-clone.xyz/"
 
 export default function Login(props) {
   let [Error, setError] = useState("");
@@ -18,7 +20,7 @@ export default function Login(props) {
   const responseFacebook = (response) => {
     console.log(response);
     axios
-      .post("https://y-clone.xyz/login", {
+      .post(server,"/login", {
         name: response.name,
         email: response.email,
         profile: response.picture.data.url,
@@ -36,7 +38,7 @@ setBlock("This account is blocked")
               if(location.state.red){
                 axios
                 .post(
-                  "https://y-clone.xyz/subscribe",
+                  server,"/subscribe",
                   { channelId:location.state.red.channelId},
                   {
                     headers: {
@@ -52,7 +54,7 @@ setBlock("This account is blocked")
               }else if(location.state.redl){
                 axios
                 .post(
-                  "https://y-clone.xyz/like",
+                  server,"/like",
                   { videoId: props.props.props.item._id },
                   {
                     headers: {
@@ -68,7 +70,7 @@ setBlock("This account is blocked")
               }else if(location.state.reds){
                 axios
                 .post(
-                  "https://y-clone.xyz/dislike",
+                  server,"/dislike",
                   { videoId: props.props.props.item._id },
                   {
                     headers: {
@@ -103,7 +105,7 @@ setBlock("This account is blocked")
       profile: response.profileObj.imageUrl,
       method: "Google",
     };
-    axios.post("https://y-clone.xyz/login", data, { headers: headers }).then((data) => {
+    axios.post(server,"/login", data, { headers: headers }).then((data) => {
       if (data.data) {
         if(data.data.block){
           setBlock("This account is blocked")
@@ -116,7 +118,7 @@ setBlock("This account is blocked")
         if(location.state.red){
           axios
           .post(
-            "https://y-clone.xyz/subscribe",
+            server,"/subscribe",
             { channelId:location.state.red.channelId},
             {
               headers: {
@@ -133,7 +135,7 @@ setBlock("This account is blocked")
         }else if(location.state.redl){
           axios
           .post(
-            "https://y-clone.xyz/like",
+            server,"/like",
             { videoId: location.state.redl._id },
             {
               headers: {
@@ -150,7 +152,7 @@ setBlock("This account is blocked")
         }else if(location.state.reds){
           axios
           .post(
-            "https://y-clone.xyz/dislike",
+            server,"/dislike",
             { videoId: location.state.reds._id },
             {
               headers: {
@@ -203,7 +205,7 @@ setBlock("This account is blocked")
             e.preventDefault();
             console.log("fd");
             axios
-              .post("https://y-clone.xyz/login", {
+              .post(server,"/login", {
                 email: email,
                 password: pass,
               })
@@ -221,7 +223,7 @@ setBlock("This account is blocked")
                       if(location.state.red){
                         axios
                         .post(
-                          "https://y-clone.xyz/subscribe",
+                          server,"/subscribe",
                           { channelId:location.state.red.channelId},
                           {
                             headers: {
@@ -238,7 +240,7 @@ setBlock("This account is blocked")
                       }else if(location.state.redl){
                         axios
                         .post(
-                          "https://y-clone.xyz/like",
+                          server,"/like",
                           { videoId: location.state.redl._id },
                           {
                             headers: {
@@ -254,7 +256,7 @@ setBlock("This account is blocked")
                       }else if(location.state.reds){
                         axios
                         .post(
-                          "https://y-clone.xyz/dislike",
+                          server,"/dislike",
                           { videoId: location.state.reds._id },
                           {
                             headers: {

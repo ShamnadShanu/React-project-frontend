@@ -15,6 +15,8 @@ import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
 import { CopyToClipboard } from 'react-copy-to-clipboard'
+// const server="http://localhost:8000/"
+const server="https://y-clone.xyz/"
 
 function VideoInfo(props) {
   const url = window.location.href
@@ -62,7 +64,7 @@ function VideoInfo(props) {
       });
     axios
       .post(
-        "/getLikes",
+        server,"/getLikes",
         { videoId: props.props._id },
         {
           headers: {
@@ -101,7 +103,7 @@ function VideoInfo(props) {
               onClick={() => {
                 axios
                   .post(
-                    "/unlike",
+                    server,"/unlike",
                     { videoId: props.props._id },
                     {
                       headers: {
@@ -120,7 +122,7 @@ function VideoInfo(props) {
               onClick={() => {
                 {localStorage.getItem("token")?axios
                   .post(
-                    "/like",
+                    server,"/like",
                     { videoId: props.props._id },
                     {
                       headers: {
@@ -149,7 +151,7 @@ function VideoInfo(props) {
               onClick={() => {
                 axios
                   .post(
-                    "/undislike",
+                    server,"/undislike",
                     { videoId: props.props._id },
                     {
                       headers: {
@@ -168,7 +170,7 @@ function VideoInfo(props) {
               onClick={() => {
                {localStorage.getItem("token")? axios
                   .post(
-                    "/dislike",
+                    server,"/dislike",
                     { videoId: props.props._id },
                     {
                       headers: {
@@ -201,7 +203,7 @@ function VideoInfo(props) {
           } />
   </CopyToClipboard>
           <ReportIcon onClick={()=>{
-            axios.post('/report',{videoId:props.props._id},{
+            axios.post(server,'/report',{videoId:props.props._id},{
               headers: {
                 "x-access-token": localStorage.getItem("token"),
               },
@@ -314,7 +316,7 @@ function VideoInfo(props) {
               onClick={() => {
                 axios
                   .post(
-                    "/unsubscribe",
+                    server,"/unsubscribe",
                     { channelId: props.props.channelId },
                     {
                       headers: {
@@ -342,7 +344,7 @@ function VideoInfo(props) {
               onClick={() => {
               {localStorage.getItem('token') ?axios
                   .post(
-                    "/subscribe",
+                    server,"/subscribe",
                     { channelId: props.props.channelId },
                     {
                       headers: {

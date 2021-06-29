@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import Moment from 'react-moment';
 import 'moment-timezone';
 import VerifiedIcon from "@material-ui/icons/CheckCircleOutlineOutlined"
+// const server="http://localhost:8000"
+const server="https://y-clone.xyz/"
+
 
 
 function VideoCard(item) {
@@ -36,7 +39,7 @@ function VideoCard(item) {
       pathname: `/watch/${item._id}`
     }}>
     <div className="videoCard">
-      <img className="videoCard_thumbnail" src={'https://y-clone.xyz/Thumbanails/'+item._id+".jpg"} alt="" />
+      <img className="videoCard_thumbnail" src={server+'/Thumbanails/'+item._id+".jpg"} alt="" />
       <div className="videoCard_info">
         <Avatar className="videoCard_avatar" alt={item.channelName} src={item.channelImage} />
         <div className="video_text">
