@@ -30,6 +30,7 @@ export default function Header(props) {
       )
       .then((res) => {
         setstate(res.data);
+        console.log("untallo",res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -90,7 +91,7 @@ export default function Header(props) {
         </Badge>
         {/* <Avatar src={data.profile} /> */}
         <Menu
-          channel={state.channel}
+          channel={state&&state.channel}
           userName={state.name}
           picture={state.profile}
         />
