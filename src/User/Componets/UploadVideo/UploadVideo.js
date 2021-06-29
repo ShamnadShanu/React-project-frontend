@@ -116,7 +116,7 @@ setState(percent)
               data.append("videothumbanail", thumbanail);
               console.log(data);
               axios
-                .post("/upload-video/", data,options)
+                .post("https://y-clone.xyz/upload-video/", data,options)
                 .then((response) => {
                   console.log(response);
                   setState(100)
