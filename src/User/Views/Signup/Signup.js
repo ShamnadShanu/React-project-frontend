@@ -33,7 +33,7 @@ function Signup() {
       profile: response.picture.data.url,
       method: "Facebook",
     };
-    axios.post(server,"/signup", data, { headers: headers }).then((data) => {
+    axios.post(server+"/signup", data, { headers: headers }).then((data) => {
       if (data.data) {
         console.log(data.data);
         localStorage.setItem("token", data.data.token);
@@ -111,7 +111,7 @@ function Signup() {
       profile: response.profileObj.imageUrl,
       method: "Google",
     };
-    axios.post(server,"/signup", data, { headers: headers }).then((data) => {
+    axios.post(server+"/signup", data, { headers: headers }).then((data) => {
       if (data.data) {
         console.log(data.data);
         localStorage.setItem("token", data.data.token);
