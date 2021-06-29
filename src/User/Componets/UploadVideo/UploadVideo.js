@@ -9,12 +9,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-// const server="http://localhost:8000/"
-const server="https://y-clone.xyz/"
+// const server="http://localhost:8000"
+const server="https://y-clone.xyz"
 function UploadVideo(props) {
   let settime= ()=>{
     setTimeout(() => {
-      setState(-1)
+      setState(100)
     }, 1000);
   }
   function LinearProgressWithLabel(props) {
@@ -118,7 +118,7 @@ setState(percent)
               data.append("videothumbanail", thumbanail);
               console.log(data);
               axios
-                .post(server,"/upload-video/", data,options)
+                .post(server+"/upload-video/", data,options)
                 .then((response) => {
                   console.log(response);
                   setState(100)
@@ -239,12 +239,12 @@ setState(percent)
         </button>:null}
       </form>
       <div className={classes.rr}>
-        {state===-1? <button onClick={()=>{
+        {state===100? <button onClick={()=>{
           window.location.reload()
         }} type="button" className="label-u">
           DONE
         </button> :null}
-      {state>1?<LinearProgressWithLabel value={state} />:null}
+      {state>1&&state<100?<LinearProgressWithLabel value={state} />:null}
     </div>    
     </div>
   );

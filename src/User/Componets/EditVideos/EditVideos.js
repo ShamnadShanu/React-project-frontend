@@ -12,7 +12,7 @@ function EditVideos(props) {
     console.log(props.item);
   let [imageError, setImageError] = useState(null);
   let [thumbanail, setThumbanail] = useState(null);
-  let [thumb, setThumb] = useState('/Thumbanails/'+props.item._id+".jpg");
+  let [thumb, setThumb] = useState(server+'/Thumbanails/'+props.item._id+".jpg");
     let [title, setTitle] = useState(props.item.title);
     let [discription, setDiscription] = useState(props.item.discription);
     let [category, setCategory] = useState(props.item.category);

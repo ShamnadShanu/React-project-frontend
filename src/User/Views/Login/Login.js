@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 import { useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
-// const server="http://localhost:8000/"
-const server="https://y-clone.xyz/"
+const server="http://localhost:8000"
+// const server="https://y-clone.xyz"
 
 export default function Login(props) {
   let [Error, setError] = useState("");
@@ -105,7 +105,7 @@ setBlock("This account is blocked")
       profile: response.profileObj.imageUrl,
       method: "Google",
     };
-    axios.post(server,"/login", data, { headers: headers }).then((data) => {
+    axios.post(server+"/login", data, { headers: headers }).then((data) => {
       if (data.data) {
         if(data.data.block){
           setBlock("This account is blocked")
@@ -118,7 +118,7 @@ setBlock("This account is blocked")
         if(location.state.red){
           axios
           .post(
-            server,"/subscribe",
+            server+"/subscribe",
             { channelId:location.state.red.channelId},
             {
               headers: {
