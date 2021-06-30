@@ -2,8 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import VideoCard from "../VideoCard/VideoCard";
 import "./RecomentedVideo.css";
-// const server="http://localhost:8000"
-const server="https://y-clone.xyz"
+const server="http://localhost:8000"
+// const server="https://y-clone.xyz"
 export default function RecomentedVideo() {
   let [videos, setVideos] = useState([]);
   useEffect(() => {

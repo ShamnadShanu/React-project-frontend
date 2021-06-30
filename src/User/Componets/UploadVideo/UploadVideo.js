@@ -53,7 +53,8 @@ console.log(`${loaded}kb of ${total}kb|${percent}%`)
 if(percent <100){
 setState(percent)
 }
-    }
+    } ,
+    header: { "content-type": "multipart/form-data" }
   }
   // let config = {
   //   header: { "content-type": "multipart/form-data" },
