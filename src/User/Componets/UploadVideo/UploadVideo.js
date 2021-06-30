@@ -54,7 +54,12 @@ if(percent <100){
 setState(percent)
 }
     },
-  header: { "content-type": "multipart/form-data" }
+  header: {
+    "origin": "*",
+    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+    "preflightContinue": false,
+    "optionsSuccessStatus": 204
+  }
   }
   // let config = {
   //   header: { "content-type": "multipart/form-data" },
