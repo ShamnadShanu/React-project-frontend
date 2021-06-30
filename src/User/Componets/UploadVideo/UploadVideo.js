@@ -53,9 +53,6 @@ console.log(`${loaded}kb of ${total}kb|${percent}%`)
 if(percent <100){
 setState(percent)
 }
-    },
-    headers: {
-      Origin:"https://club-flame.vercel.app"
     }
   }
   // let config = {
