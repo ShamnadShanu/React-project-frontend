@@ -54,12 +54,9 @@ if(percent <100){
 setState(percent)
 }
     },
-  header: {
-    "origin": "*",
-    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-    "preflightContinue": false,
-    "optionsSuccessStatus": 204
-  }
+    headers: {
+      "Access-Control-Allow-Origin":"https://club-flame.vercel.app"
+    }
   }
   // let config = {
   //   header: { "content-type": "multipart/form-data" },
