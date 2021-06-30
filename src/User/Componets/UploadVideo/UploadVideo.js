@@ -55,7 +55,7 @@ setState(percent)
 }
     },
     headers: {
-      "Access-Control-Allow-Origin":"https://club-flame.vercel.app"
+      Origin:"https://club-flame.vercel.app"
     }
   }
   // let config = {
