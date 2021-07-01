@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 import { useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
-// const server="http://localhost:8000"
-const server="https://y-clone.xyz"
+const server="http://localhost:8000"
+// const server="https://y-clone.xyz"
 
 export default function Login(props) {
   let [Error, setError] = useState("");

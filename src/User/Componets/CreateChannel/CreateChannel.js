@@ -1,14 +1,20 @@
+import { Avatar } from '@material-ui/core'
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import './CreateChannel.css'
-// const server="http://localhost:8000"
-const server="https://y-clone.xyz"
+const server="http://localhost:8000"
+// const server="https://y-clone.xyz"
 
 function CreateChannel(props) {
+    const config={
+        headers:{
+            "content-type":"multipart/form-data"
+        }
+    }
     let history=useHistory()
     const [Cname,setCname]=useState(props.userName)
-    const [channelImg,setChannelImg]=useState(props.picture)
+    const [channelImg,setChannelImg]=useState()
     const [channelIMG,setChannelIMG]=useState()
     const [error,setError]=useState(false)
     return (
@@ -16,12 +22,12 @@ function CreateChannel(props) {
             <h2>How you'll appear</h2>
             <hr />
         <div className="profile">
-        <img  className="channel_img" src={channelImg} alt="" />
+        {channelImg?<img  className="channel_img" src={channelImg} alt="" />:<Avatar className="channel_img"/>}
             <label className="profile_label">
                 UPLOAD PICTURE
             <input id="channel_image" onChange={(e)=>{
-setChannelImg(URL.createObjectURL(e.target.files[0]))
-setChannelIMG(e.target.files[0])
+{e.target.files[0]&&setChannelImg(URL.createObjectURL(e.target.files[0]))}
+{e.target.files[0]&&setChannelIMG(e.target.files[0])}
             }} hidden type="file" />
             </label>
            <input className="channel_name" onChange={(e)=>{
@@ -36,8 +42,10 @@ setChannelIMG(e.target.files[0])
             const data = new FormData();
             data.append("channelName", Cname);
             data.append("channelImage", channelIMG);
+            data.append("token",localStorage.getItem("token"))
+            
             console.log(data);
-            axios.post(server+'/createChannel',{data:data,token:localStorage.getItem("token")}).then((data)=>{
+            axios.post(server+'/createChannel',data,config).then((data)=>{
                   if(data.data){
                       history.push("/channel")
                   }else{
