@@ -19,7 +19,7 @@ function ChannelPage() {
   let [subscriberCount,setSubscriberCount]=useState()
 
   useEffect(()=>{
-axios.post(server,'/getChannel',{token:localStorage.getItem("token")})
+axios.post(server+'/getChannel',{token:localStorage.getItem("token")})
 .then((response)=>{
  setChannelName(response.data.channelName);
  setChannelImage(response.data.channelImage)
