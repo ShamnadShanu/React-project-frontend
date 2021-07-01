@@ -25,12 +25,7 @@ function Comments(props) {
     axios
       .post(
        server,"/getAllComment",
-        { videoId: props.item._id },
-        {
-          headers: {
-            "x-access-token": localStorage.getItem("token"),
-          },
-        }
+        { videoId: props.item._id,token: localStorage.getItem("token") }
       )
       .then((response) => {
         AddComments(response.data);
@@ -39,12 +34,7 @@ function Comments(props) {
     axios
       .post(
         server,
-        {},
-        {
-          headers: {
-            "x-access-token": localStorage.getItem("token"),
-          },
-        }
+        {token: localStorage.getItem("token"),},
       )
       .then((response) => {
         setProfile(response.data.profile);
@@ -96,12 +86,7 @@ function Comments(props) {
               axios
                 .post(
                   server,"/comment",
-                  { Comment: AddedCommet, videoId: props.item._id },
-                  {
-                    headers: {
-                      "x-access-token": localStorage.getItem("token"),
-                    },
-                  }
+                  { Comment: AddedCommet, videoId: props.item._id,token: localStorage.getItem("token")}
                 )
                 .then((response) => {
                   AddComments(response.data);
@@ -145,12 +130,7 @@ function Comments(props) {
                         axios
                           .post(
                            server,"/comment-unlike",
-                            { commentId: item._id },
-                            {
-                              headers: {
-                                "x-access-token": localStorage.getItem("token"),
-                              },
-                            }
+                            { commentId: item._id ,token: localStorage.getItem("token")}
                           )
                           .then((response) => {
                             AddComments(response.data);
@@ -172,13 +152,7 @@ function Comments(props) {
                             ? axios
                                 .post(
                                   server,"/comment-like",
-                                  { commentId: item._id },
-                                  {
-                                    headers: {
-                                      "x-access-token":
-                                        localStorage.getItem("token"),
-                                    },
-                                  }
+                                  { commentId: item._id,token: localStorage.getItem("token")}
                                 )
                                 .then((response) => {
                                   AddComments(response.data);
@@ -213,12 +187,7 @@ function Comments(props) {
                             server,"/comment-undislike",
                             {
                               commentId: item._id,
-                            },
-                            {
-                              headers: {
-                                "x-access-token": localStorage.getItem("token"),
-                              },
-                            }
+                            token: localStorage.getItem("token")}
                           )
                           .then((response) => {
                             AddComments(response.data);
@@ -241,13 +210,7 @@ function Comments(props) {
                           ? axios
                               .post(
                                 server,"/comment-dislike",
-                                { commentId: item._id },
-                                {
-                                  headers: {
-                                    "x-access-token":
-                                      localStorage.getItem("token"),
-                                  },
-                                }
+                                { commentId: item._id ,token: localStorage.getItem("token")}
                               )
                               .then((response) => {
                                 AddComments(response.data);

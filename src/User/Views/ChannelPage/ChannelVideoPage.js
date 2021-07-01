@@ -7,7 +7,7 @@ import ChannelVideos from "../../Componets/ChannelVideos/ChannelVideos";
 import { Link } from "react-router-dom";
 import axios from "axios";
 // const server="http://localhost:8000/"
-const server="https://y-clone.xyz/"
+const server = "https://y-clone.xyz/";
 
 function ChannelVideoPage() {
   let [channelName, setChannelName] = useState();
@@ -17,24 +17,17 @@ function ChannelVideoPage() {
 
   useEffect(() => {
     axios
-      .post(
-        server,"/getChannel",
-        {},
-        {
-          headers: {
-            "x-access-token": localStorage.getItem("token"),
-          },
-        }
-      )
+      .post(server, "/getChannel", { token: localStorage.getItem("token") })
       .then((response) => {
         setChannelName(response.data.channelName);
         setChannelImage(response.data.channelImage);
         setChannelId(response.data._id);
-        if(response.data.subscribers){
-          setSubscriberCount(response.data.subscribers.length)
-         }else{
-          setSubscriberCount(0)
-         }      });
+        if (response.data.subscribers) {
+          setSubscriberCount(response.data.subscribers.length);
+        } else {
+          setSubscriberCount(0);
+        }
+      });
   }, []);
   return (
     <div className="channel_page">
@@ -56,12 +49,18 @@ function ChannelVideoPage() {
             <Button className="buttons" variant="contained" color="primary">
               CUSTOMISE CHANNEL
             </Button>
-            <Link to={{pathname:"/managevideos",
-          state:{
-            channelId:channelId
-          }}}><Button className="buttons" variant="contained" color="primary">
-              MANAGE VIDEOS
-            </Button></Link>
+            <Link
+              to={{
+                pathname: "/managevideos",
+                state: {
+                  channelId: channelId,
+                },
+              }}
+            >
+              <Button className="buttons" variant="contained" color="primary">
+                MANAGE VIDEOS
+              </Button>
+            </Link>
           </div>
           <div className="channel_navbar">
             <Link to="/channelhome" className="channel_nav">

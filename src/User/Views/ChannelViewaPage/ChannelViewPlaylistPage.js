@@ -18,18 +18,12 @@ function ChannelViewPlaylistPage(props) {
   let [subscribed,setSubscribed]=useState()
   let [subscriberCount, setSubscriberCount] = useState();
   useEffect(() => {
-    axios
-      .post(
+   axios.post(
       server,"/channelview",
-        {
-          channelId: props.location.state.channelId,
-        },
-        {
-          headers: {
-            "x-access-token": localStorage.getItem("token"),
-          },
-        }
-      )
+      {
+        channelId: props.location.state.channelId,token:localStorage.getItem("token")
+      }
+    )
       .then((response) => {
         setChannelName(response.data.response.channelName);
         setChannelImage(response.data.response.channelImage);

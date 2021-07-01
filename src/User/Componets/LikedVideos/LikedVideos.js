@@ -8,11 +8,7 @@ const server="https://y-clone.xyz/"
 function LikedVideos() {
     const [videos,setVideos]=useState()
     useEffect(()=>{
-axios.post(server,'/liked-videos',{},{
-    headers: {
-        "x-access-token": localStorage.getItem("token"),
-      },
-}).then((response)=>{
+axios.post(server,'/liked-videos',{token: localStorage.getItem("token")}).then((response)=>{
     console.log(response.data);
 setVideos(response.data)
 })

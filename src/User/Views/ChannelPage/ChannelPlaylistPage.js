@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../Componets/Header/Header";
 import Sidebar from "../../Componets/Sidebar/Sidebar";
 import "./ChannelPage.css";
@@ -8,28 +8,27 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Playlists from "../../Componets/Playlists/Playlists";
 // const server="http://localhost:8000/"
-const server="https://y-clone.xyz/"
+const server = "https://y-clone.xyz/";
 
 function ChannelPlaylistPage() {
-  let [channelName,setChannelName]=useState()
-  let [channelImage,setChannelImage]=useState()
-  let [channelId,setChannelId]=useState()
-  let [subscriberCount,setSubscriberCount]=useState()
-  useEffect(()=>{
-axios.post(server,'/getChannel',{},{
-  headers:{
-    "x-access-token": localStorage.getItem("token")
-  }
-}).then((response)=>{
- setChannelName(response.data.channelName);
- setChannelImage(response.data.channelImage)
- setChannelId(response.data._id)
- if(response.data.subscribers){
-  setSubscriberCount(response.data.subscribers.length)
- }else{
-  setSubscriberCount(0)
- }})
-  },[])
+  let [channelName, setChannelName] = useState();
+  let [channelImage, setChannelImage] = useState();
+  let [channelId, setChannelId] = useState();
+  let [subscriberCount, setSubscriberCount] = useState();
+  useEffect(() => {
+    axios
+      .post(server, "/getChannel", { token: localStorage.getItem("token") })
+      .then((response) => {
+        setChannelName(response.data.channelName);
+        setChannelImage(response.data.channelImage);
+        setChannelId(response.data._id);
+        if (response.data.subscribers) {
+          setSubscriberCount(response.data.subscribers.length);
+        } else {
+          setSubscriberCount(0);
+        }
+      });
+  }, []);
   return (
     <div className="channel_page">
       <Header />
@@ -39,24 +38,29 @@ axios.post(server,'/getChannel',{},{
           <div className="channel_header">
             <div className="channeldet">
               {" "}
-              <img
-                src={channelImage}
-                alt=""
-              />
+              <img src={channelImage} alt="" />
               <div className="aaa">
                 <h2>{channelName}</h2>
-                <p><span>{subscriberCount}</span> Subscribers</p>
+                <p>
+                  <span>{subscriberCount}</span> Subscribers
+                </p>
               </div>
             </div>
             <Button className="buttons" variant="contained" color="primary">
               CUSTOMISE CHANNEL
             </Button>
-            <Link to={{pathname:"/managevideos",
-          state:{
-            channelId:channelId
-          }}}><Button className="buttons" variant="contained" color="primary">
-              MANAGE VIDEOS
-            </Button></Link>
+            <Link
+              to={{
+                pathname: "/managevideos",
+                state: {
+                  channelId: channelId,
+                },
+              }}
+            >
+              <Button className="buttons" variant="contained" color="primary">
+                MANAGE VIDEOS
+              </Button>
+            </Link>
           </div>
           <div className="channel_navbar">
             <Link to="/channelhome" className="channel_nav">
@@ -70,7 +74,7 @@ axios.post(server,'/getChannel',{},{
             </Link>
           </div>
           <div className="channel_content">
-           {channelId&&<Playlists channelId={channelId}/>}
+            {channelId && <Playlists channelId={channelId} />}
           </div>
         </div>
       </div>
