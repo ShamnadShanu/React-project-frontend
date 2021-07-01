@@ -8,7 +8,7 @@ import Modal from 'react-responsive-modal'
 import UploadVideo from "../../Componets/UploadVideo/UploadVideo";
 import axios from "axios";
 // const server="http://localhost:8000/"
-const server="https://y-clone.xyz/"
+const server="https://y-clone.xyz"
 
 
 function ChannelPage() {
