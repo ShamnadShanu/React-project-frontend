@@ -20,7 +20,7 @@ function VideoArea(props) {
       <div className="video_div">
         <video autoPlay className="video_area" controls>
           <source
-            src={server,"/Videos/" + props.props._id + ".mp4"}
+            src={server+"/Videos/" + props.props._id + ".mp4"}
             type="video/mp4"
           />
         </video>

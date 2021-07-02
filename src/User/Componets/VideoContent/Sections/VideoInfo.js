@@ -45,7 +45,7 @@ function VideoInfo(props) {
 
   useEffect(() => {
     axios
-      .post("/getSubscribers", {
+      .post(server+"/getSubscribers", {
         channelId: props.props.channelId,
         token: localStorage.getItem("token"),
       })

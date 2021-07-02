@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import Modal from 'react-responsive-modal'
 import UploadVideo from "../../Componets/UploadVideo/UploadVideo";
 import axios from "axios";
-// const server="http://localhost:8000/"
+// const server="http://localhost:8000"
 const server="https://y-clone.xyz"
 
 

@@ -20,7 +20,7 @@ export default function Login(props) {
   const responseFacebook = (response) => {
     console.log(response);
     axios
-      .post(server,"/login", {
+      .post(server+"/login", {
         name: response.name,
         email: response.email,
         profile: response.picture.data.url,
@@ -38,7 +38,7 @@ setBlock("This account is blocked")
               if(location.state.red){
                 axios
                 .post(
-                  server,"/subscribe",
+                  server+"/subscribe",
                   { channelId:location.state.red.channelId},
                   {
                     headers: {
@@ -54,7 +54,7 @@ setBlock("This account is blocked")
               }else if(location.state.redl){
                 axios
                 .post(
-                  server,"/like",
+                  server+"/like",
                   { videoId: props.props.props.item._id },
                   {
                     headers: {
@@ -70,7 +70,7 @@ setBlock("This account is blocked")
               }else if(location.state.reds){
                 axios
                 .post(
-                  server,"/dislike",
+                  server+"/dislike",
                   { videoId: props.props.props.item._id },
                   {
                     headers: {
@@ -136,12 +136,8 @@ setBlock("This account is blocked")
           axios
           .post(
             server+"/like",
-            { videoId: location.state.redl._id },
-            {
-              headers: {
-                "x-access-token": localStorage.getItem("token"),
-              },
-            }
+            { videoId: location.state.redl._id,token:localStorage.getItem("token")}
+           
           )
           .then((response) => {
             history.push({
@@ -205,7 +201,7 @@ setBlock("This account is blocked")
             e.preventDefault();
             console.log("fd");
             axios
-              .post(server,"/login", {
+              .post(server+"/login", {
                 email: email,
                 password: pass,
               })
@@ -223,7 +219,7 @@ setBlock("This account is blocked")
                       if(location.state.red){
                         axios
                         .post(
-                          server,"/subscribe",
+                          server+"/subscribe",
                           { channelId:location.state.red.channelId},
                           {
                             headers: {
@@ -240,7 +236,7 @@ setBlock("This account is blocked")
                       }else if(location.state.redl){
                         axios
                         .post(
-                          server,"/like",
+                          server+"/like",
                           { videoId: location.state.redl._id },
                           {
                             headers: {
@@ -256,7 +252,7 @@ setBlock("This account is blocked")
                       }else if(location.state.reds){
                         axios
                         .post(
-                          server,"/dislike",
+                          server+"/dislike",
                           { videoId: location.state.reds._id },
                           {
                             headers: {

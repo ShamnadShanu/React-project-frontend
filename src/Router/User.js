@@ -11,7 +11,6 @@ import ChannelVideoPage from "../User/Views/ChannelPage/ChannelVideoPage";
 import ChannelViewPage from "../User/Views/ChannelViewaPage/ChannelViewPage";
 import ChannelViewVideosPage from "../User/Views/ChannelViewaPage/ChannelViewVidoesPage";
 import ManageVideos from "../User/Componets/ManageVidoes/ManageVideos";
-import Socket from "../User/Componets/Socket/Socket";
 import LikedVideosPage from "../User/Views/LikedVideosPage/LikedVideosPage";
 import SubscriptionPage from "../User/Views/SubscriptionPage/SubscriptionPage";
 import ChannelViewPlaylistPage from "../User/Views/ChannelViewaPage/ChannelViewPlaylistPage";
@@ -51,7 +50,6 @@ function User() {
         <Route path="/channelviewplaylist" component={ChannelViewPlaylistPage}></Route>      
         <Route path="/channelviewvideos" component={ChannelViewVideosPage}></Route>      
         <Route path="/managevideos" component={ManageVideos}></Route>      
-        <Route path="/socket" component={Socket}></Route>      
         <AuthRoute path="/liked-videos" component={LikedVideosPage}></AuthRoute>      
         <AuthRoute path="/subscriptions" component={SubscriptionPage}></AuthRoute>      
         </Router>
