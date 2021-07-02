@@ -114,7 +114,6 @@ setState(percent)
               data.append("category", category);
               data.append("visibility", visibility);
               data.append("channelId", props.channelId);
-              data.append("channelImage", props.channelImage);
               data.append("channelName", props.channelName);
               data.append("videothumbanail", thumbanail);
               console.log(data);

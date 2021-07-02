@@ -7,8 +7,8 @@ import axios from "axios";
 import Moment from "react-moment";
 import "moment-timezone";
 import { useHistory } from "react-router";
-// const server="http://localhost:8000/"
-const server="https://y-clone.xyz/"
+// const server="http://localhost:8000"
+const server="https://y-clone.xyz"
 
 function Comments(props) {
   let history = useHistory();
@@ -24,7 +24,7 @@ function Comments(props) {
   useEffect(() => {
     axios
       .post(
-       server,"/getAllComment",
+       server+"/getAllComment",
         { videoId: props.item._id,token: localStorage.getItem("token") }
       )
       .then((response) => {
@@ -85,7 +85,7 @@ function Comments(props) {
             if (AddedCommet) {
               axios
                 .post(
-                  server,"/comment",
+                  server+"/comment",
                   { Comment: AddedCommet, videoId: props.item._id,token: localStorage.getItem("token")}
                 )
                 .then((response) => {
@@ -129,7 +129,7 @@ function Comments(props) {
                       onClick={() => {
                         axios
                           .post(
-                           server,"/comment-unlike",
+                           server+"/comment-unlike",
                             { commentId: item._id ,token: localStorage.getItem("token")}
                           )
                           .then((response) => {
@@ -151,7 +151,7 @@ function Comments(props) {
                           localStorage.getItem("token")
                             ? axios
                                 .post(
-                                  server,"/comment-like",
+                                  server+"/comment-like",
                                   { commentId: item._id,token: localStorage.getItem("token")}
                                 )
                                 .then((response) => {
@@ -184,7 +184,7 @@ function Comments(props) {
                       onClick={() => {
                         axios
                           .post(
-                            server,"/comment-undislike",
+                            server+"/comment-undislike",
                             {
                               commentId: item._id,
                             token: localStorage.getItem("token")}
@@ -209,7 +209,7 @@ function Comments(props) {
                         localStorage.getItem("token")
                           ? axios
                               .post(
-                                server,"/comment-dislike",
+                                server+"/comment-dislike",
                                 { commentId: item._id ,token: localStorage.getItem("token")}
                               )
                               .then((response) => {

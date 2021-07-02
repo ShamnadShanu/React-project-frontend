@@ -6,7 +6,7 @@ import Moment from 'react-moment';
 import 'moment-timezone';
 import VerifiedIcon from "@material-ui/icons/CheckCircleOutlineOutlined"
 // const server="http://localhost:8000"
-const server="https://y-clone.xyz/"
+const server="https://y-clone.xyz"
 
 
 

@@ -15,8 +15,8 @@ import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
 import Popover from "@material-ui/core/Popover";
 import Typography from "@material-ui/core/Typography";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-// const server="http://localhost:8000/"
-const server = "https://y-clone.xyz/";
+// const server="http://localhost:8000"
+const server = "https://y-clone.xyz";
 
 function VideoInfo(props) {
   const url = window.location.href;
@@ -58,7 +58,7 @@ function VideoInfo(props) {
       });
     axios
       .post(
-        server,
+        server+
         "/getLikes",
         { videoId: props.props._id ,token:localStorage.getItem("token")},
       )
@@ -97,7 +97,7 @@ function VideoInfo(props) {
               onClick={() => {
                 axios
                   .post(
-                    server,
+                    server+
                     "/unlike",
                     { videoId: props.props._id,token: localStorage.getItem("token")}
                   )
@@ -115,7 +115,7 @@ function VideoInfo(props) {
                   localStorage.getItem("token")
                     ? axios
                         .post(
-                          server,
+                          server+
                           "/like",
                           { videoId: props.props._id,token: localStorage.getItem("token") }
                         )
@@ -143,7 +143,7 @@ function VideoInfo(props) {
               onClick={() => {
                 axios
                   .post(
-                    server,
+                    server+
                     "/undislike",
                     { videoId: props.props._id,token: localStorage.getItem("token") }
                   )
@@ -161,7 +161,7 @@ function VideoInfo(props) {
                   localStorage.getItem("token")
                     ? axios
                         .post(
-                          server,
+                          server+
                           "/dislike",
                           { videoId: props.props._id,token: localStorage.getItem("token")}
                         )
@@ -196,7 +196,7 @@ function VideoInfo(props) {
             onClick={() => {
               axios
                 .post(
-                  server,
+                  server+
                   "/report",
                   { videoId: props.props._id,token: localStorage.getItem("token") },
                  
@@ -363,7 +363,7 @@ function VideoInfo(props) {
                 onClick={() => {
                   axios
                     .post(
-                      server,
+                      server+
                       "/unsubscribe",
                       { channelId: props.props.channelId ,token: localStorage.getItem("token")}
                     )
@@ -399,7 +399,7 @@ function VideoInfo(props) {
                   localStorage.getItem("token")
                     ? axios
                         .post(
-                          server,
+                          server+
                           "/subscribe",
                           { channelId: props.props.channelId ,token: localStorage.getItem("token")}
                         )

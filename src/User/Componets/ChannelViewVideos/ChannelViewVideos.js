@@ -2,17 +2,13 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import VideoCard from '../VideoCard/VideoCard'
 import './ChannelViewVideos.css'
-// const server="http://localhost:8000/"
-const server="https://y-clone.xyz/"
+// const server="http://localhost:8000"
+const server="https://y-clone.xyz"
 function ChannelViewVideos(props) {
   console.log('sfsgs',props);
   const [content,setContent]=useState([])
   useEffect(()=>{
- axios.post(server,'/Channel_view-videos',{data:props.channelId},{
-  headers:{
-    "x-access-token": localStorage.getItem("token")
-  }
-}).then((response)=>{
+ axios.post(server+'/Channel_view-videos',{data:props.channelId,token:localStorage.getItem("token")}).then((response)=>{
   setContent(response.data)
 })
   },[])

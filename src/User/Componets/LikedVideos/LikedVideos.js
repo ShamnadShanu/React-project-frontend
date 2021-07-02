@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import VideoRow from '../VideoRow/VideoRow'
 import './LikedVideos.css'
-// const server="http://localhost:8000/"
-const server="https://y-clone.xyz/"
+// const server="http://localhost:8000"
+const server="https://y-clone.xyz"
 function LikedVideos() {
     const [videos,setVideos]=useState()
     useEffect(()=>{
-axios.post(server,'/liked-videos',{token: localStorage.getItem("token")}).then((response)=>{
+axios.post(server+'/liked-videos',{token: localStorage.getItem("token")}).then((response)=>{
     console.log(response.data);
 setVideos(response.data)
 })

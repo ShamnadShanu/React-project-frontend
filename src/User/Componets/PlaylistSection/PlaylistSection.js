@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import PlaylistCard from "../PlaylistCard/PlaylistCard";
 import { Modal } from "@material-ui/core";
 import PlaylistRow from "../Plylist/PlaylistRow";
-// const server="http://localhost:8000/"
-const server="https://y-clone.xyz/"
+// const server="http://localhost:8000"
+const server="https://y-clone.xyz"
 
 function PlaylistSection(props) {
   let [view, setview] = useState();
@@ -13,12 +13,7 @@ function PlaylistSection(props) {
     axios
       .post(
         server,"/Channel_view-playlist",
-        { data: props.channelId },
-        {
-          headers: {
-            "x-access-token": localStorage.getItem("token"),
-          },
-        }
+        { data: props.channelId,token:localStorage.getItem("token") }
       )
       .then((response) => {
         console.log(response.data, "llllllllllllllllllllll");

@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react'
 import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import'./PlaylistRow.css'
-// const server="http://localhost:8000/"
-const server="https://y-clone.xyz/"
+// const server="http://localhost:8000"
+const server="https://y-clone.xyz"
 function PlaylistRow(Props) {
 
   const [videos,setVideos]=useState()
@@ -20,7 +20,7 @@ function PlaylistRow(Props) {
     return truncated;
 }
     useEffect(()=>{
-      axios.post(server,'/getPlaylistVideos',{playlistId:props.playlistId}).then((response)=>{
+      axios.post(server+'/getPlaylistVideos',{playlistId:props.playlistId}).then((response)=>{
         console.log(response.data);
 setVideos(response.data)
       })
@@ -35,7 +35,7 @@ setVideos(response.data)
                <div className="related-p">
                 <div className="related_videothumbanail-p">
                   <img
-                    src={server,'/Thumbanails/'+item.videos._id+".jpg"}
+                    src={server+'/Thumbanails/'+item.videos._id+".jpg"}
                     alt="thumbnail"
                   />
                 </div>

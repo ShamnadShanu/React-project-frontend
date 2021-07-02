@@ -2,8 +2,8 @@ import axios from "axios";
 import React, { useEffect} from "react";
 import VideoInfo from "./VideoInfo";
 import '../VideoContent.css'
-// const server="http://localhost:8000/"
-const server="https://y-clone.xyz/"
+// const server="http://localhost:8000"
+const server="https://y-clone.xyz"
 
 
 function VideoArea(props) {
@@ -12,7 +12,7 @@ function VideoArea(props) {
   // setState(props)
   useEffect(() => {
     axios.post(
-      server,"/views",
+      server+"/views",
       { videoId: props.props._id } );
   }, []);
   return (

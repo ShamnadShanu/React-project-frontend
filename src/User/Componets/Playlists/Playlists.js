@@ -11,8 +11,8 @@ import { InputLabel, Modal } from "@material-ui/core";
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
 import PlaylistRow from "../Plylist/PlaylistRow";
-// const server="http://localhost:8000/"
-const server="https://y-clone.xyz/"
+// const server="http://localhost:8000"
+const server="https://y-clone.xyz"
 
 function Playlists(props) {
 
@@ -25,7 +25,7 @@ function Playlists(props) {
   let [visibility,setVisibility]=useState()
   let [playlists,setPlaylists]=useState()
   useEffect(()=>{
-      axios.post(server,'/getPlaylists',{channelId:props.channelId}).then((response)=>{
+      axios.post(server+'/getPlaylists',{channelId:props.channelId}).then((response)=>{
           setPlaylists(response.data)
           console.log(response.data);
 

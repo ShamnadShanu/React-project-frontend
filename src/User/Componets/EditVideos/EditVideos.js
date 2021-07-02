@@ -5,8 +5,8 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import axios from 'axios';
-// const server="http://localhost:8000/"
-const server="https://y-clone.xyz/"
+// const server="http://localhost:8000"
+const server="https://y-clone.xyz"
 
 function EditVideos(props) {
     console.log(props.item);
@@ -62,7 +62,7 @@ function EditVideos(props) {
               data.append('videoId',props.item._id)
               console.log(data);
               axios
-                .post(server,"/edit-video", data,config)
+                .post(server+"/edit-video", data,config)
                 .then(() => {
                   window.location.reload();
                 });
