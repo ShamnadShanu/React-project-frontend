@@ -22,7 +22,6 @@ export default function RecomentedVideo() {
             category={item.category}
             channelId={item.channelId}
               discription={item.discription}
-              channelImage={item.channelImage}
               timestamp={item.timestamp}
               title={item.title}
               _id={item._id}

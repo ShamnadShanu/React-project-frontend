@@ -41,7 +41,7 @@ function VideoCard(item) {
     <div className="videoCard">
       <img className="videoCard_thumbnail" src={server+'/Thumbanails/'+item._id+".jpg"} alt="" />
       <div className="videoCard_info">
-        <Avatar className="videoCard_avatar" alt={item.channelName} src={item.channelImage} />
+        <Avatar className="videoCard_avatar" alt={item.channelName} src={server+'/ChannelImages/'+item.channelId+".jpg"} />
         <div className="video_text">
           <h4>{truncateText()}</h4> 
 <Link className="don" to={{
