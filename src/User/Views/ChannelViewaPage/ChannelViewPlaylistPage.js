@@ -49,7 +49,7 @@ function ChannelViewPlaylistPage(props) {
                 {" "}
                 <img src={server+'/ChannelImages/'+channelId+".jpg"} alt="" />
                 <div className="aaa">
-                  <h2>{channelName}</h2>
+                  <h2>{channelName} {props.location.state.verified && <VerifiedIcon/>}</h2>
                   <p>
                     <span>{subscriberCount}</span> Subscribers
                   </p>

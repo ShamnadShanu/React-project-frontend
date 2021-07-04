@@ -5,6 +5,8 @@ import "./ChannelViewPage.css";
 import Button from "@material-ui/core/Button";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
+import VerifiedIcon from "@material-ui/icons/CheckCircleOutlineOutlined"
+
 // const server="http://localhost:8000"
 const server="https://y-clone.xyz"
 
@@ -47,7 +49,7 @@ function ChannelViewPage(props) {
               {" "}
               <img src={server+'/ChannelImages/'+channelId+".jpg"} alt="" />
               <div className="aaa">
-                <h2>{channelName}</h2>
+                <h2>{channelName} {props.location.state.verified && <VerifiedIcon/>}</h2>
                 <p>
                   <span>{subscriberCount}</span> Subscribers
                 </p>
