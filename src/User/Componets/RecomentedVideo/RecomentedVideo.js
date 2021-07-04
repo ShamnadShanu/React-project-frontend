@@ -18,7 +18,6 @@ export default function RecomentedVideo() {
         {videos.map((item, index) => {
           return (
             <VideoCard
-            verified={true}
             category={item.category}
             channelId={item.channelId}
               discription={item.discription}
