@@ -12,15 +12,13 @@ const server = "https://y-clone.xyz";
 
 function ChannelPlaylistPage() {
   let [channelName, setChannelName] = useState();
-  let [channelImage, setChannelImage] = useState();
   let [channelId, setChannelId] = useState();
   let [subscriberCount, setSubscriberCount] = useState();
   useEffect(() => {
     axios
-      .post(server, "/getChannel", { token: localStorage.getItem("token") })
+      .post(server+ "/getChannel", { token: localStorage.getItem("token") })
       .then((response) => {
         setChannelName(response.data.channelName);
-        setChannelImage(response.data.channelImage);
         setChannelId(response.data._id);
         if (response.data.subscribers) {
           setSubscriberCount(response.data.subscribers.length);
@@ -38,7 +36,7 @@ function ChannelPlaylistPage() {
           <div className="channel_header">
             <div className="channeldet">
               {" "}
-              <img src={channelImage} alt="" />
+              <img src={server+'/ChannelImages/'+channelId+".jpg"}alt="" />
               <div className="aaa">
                 <h2>{channelName}</h2>
                 <p>

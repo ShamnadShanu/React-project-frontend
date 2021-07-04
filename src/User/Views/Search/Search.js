@@ -6,17 +6,14 @@ import SearchBody from './SearchBody';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 export default function Search(props) {
-// const server="http://localhost:8000/"
-const server="https://y-clone.xyz/"
+// const server="http://localhost:8000"
+const server="https://y-clone.xyz"
     let[searchResult,setSearchResult]=useState()
     let { searchTerm } = useParams(); 
     // setState(searchTerm);
     useEffect(()=>{
         axios
-        .post(server,"/search", { input: searchTerm },{
-           headers: {
-          "x-access-token": localStorage.getItem("token"),
-        },})
+        .post(server+"/search", { input: searchTerm,token:localStorage.getItem("token")})
         .then((response) => {
             setSearchResult(response.data)
         })

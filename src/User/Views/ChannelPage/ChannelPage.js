@@ -14,7 +14,6 @@ const server="https://y-clone.xyz"
 function ChannelPage() {
   let [isModel,setIsModal]=useState(false)
   let [channelName,setChannelName]=useState()
-  let [channelImage,setChannelImage]=useState()
   let [channelId,setChannelId]=useState()
   let [subscriberCount,setSubscriberCount]=useState()
 
@@ -22,7 +21,6 @@ function ChannelPage() {
 axios.post(server+'/getChannel',{token:localStorage.getItem("token")})
 .then((response)=>{
  setChannelName(response.data.channelName);
- setChannelImage(response.data.channelImage)
  setChannelId(response.data._id)
  if(response.data.subscribers){
   setSubscriberCount(response.data.subscribers.length)
@@ -33,7 +31,6 @@ axios.post(server+'/getChannel',{token:localStorage.getItem("token")})
 })
   },[])
   console.log(channelName);
-  console.log(channelImage);
   return (
     <div className="channel_page">
       <Header />
@@ -44,7 +41,7 @@ axios.post(server+'/getChannel',{token:localStorage.getItem("token")})
             <div className="channeldet">
               {" "}
               <img
-                src={channelImage}
+                src={server+'/ChannelImages/'+channelId+".jpg"}
                 alt=""
               />
               <div className="aaa">
@@ -78,7 +75,7 @@ axios.post(server+'/getChannel',{token:localStorage.getItem("token")})
  center onClose={()=>{
   setIsModal(false)
 }} open={isModel}>
-    < UploadVideo channelName={channelName} channelImage={channelImage} channelId={channelId}/>
+    < UploadVideo channelName={channelName} channelImage={server+'/ChannelImages/'+channelId+".jpg"} channelId={channelId}/>
 </Modal>
           <Button className="upload" onClick={()=>{
               setIsModal(true)

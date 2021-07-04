@@ -8,11 +8,7 @@ const server="https://y-clone.xyz"
 function Subscription() {
   let [channel, setChannel] = useState([]);
   useEffect(() => {
-    axios.post(server+"/get-subscribers",{},{
-      headers: {
-        "x-access-token": localStorage.getItem("token"),
-      },
-    }).then((response)=>{
+    axios.post(server+"/get-subscribers",{token: localStorage.getItem("token")}).then((response)=>{
 setChannel(response.data)
     })
   }, []);
@@ -29,7 +25,7 @@ setChannel(response.data)
                     channelId={item._id}
                     image={item.channelImage}
                     channel={item.channelName}
-                    verified
+                  verified={item.verified?true:false}
                     subs={item.subscribers?item.subscribers.length:0}
                     noOfVideos={5}
                     description="Discriprion"

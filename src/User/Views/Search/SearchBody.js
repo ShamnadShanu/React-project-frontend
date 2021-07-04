@@ -32,7 +32,7 @@ function SearchBody(props) {
         channel={props.searchResult.channel.channelName}
     verified={props.searchResult.channel.verified}
         subs={props.searchResult.channel.subscribers&&props.searchResult.channel.subscribers.length}
-        noOfVideos={3}
+        noOfVideos={props.searchResult.count?props.searchResult.count:0}
         description="discriprion"
         />
                                       <hr style={{ borderTop: "1px solid grey",marginLeft:"1rem" }} />

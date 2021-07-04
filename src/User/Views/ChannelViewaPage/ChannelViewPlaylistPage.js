@@ -8,25 +8,23 @@ import axios from "axios";
 import ChannelViewVideos from '../../Componets/ChannelViewVideos/ChannelViewVideos'
 import PlaylistCard from "../../Componets/PlaylistCard/PlaylistCard";
 import PlaylistSection from "../../Componets/PlaylistSection/PlaylistSection";
-// const server="http://localhost:8000/"
-const server="https://y-clone.xyz/"
+// const server="http://localhost:8000"
+const server="https://y-clone.xyz"
 function ChannelViewPlaylistPage(props) {
     let history=useHistory()
   let [channelName, setChannelName] = useState();
-  let [channelImage, setChannelImage] = useState();
   let [channelId, setChannelId] = useState();
   let [subscribed,setSubscribed]=useState()
   let [subscriberCount, setSubscriberCount] = useState();
   useEffect(() => {
    axios.post(
-      server,"/channelview",
+      server+"/channelview",
       {
         channelId: props.location.state.channelId,token:localStorage.getItem("token")
       }
     )
       .then((response) => {
         setChannelName(response.data.response.channelName);
-        setChannelImage(response.data.response.channelImage);
         setChannelId(response.data.response._id);
         setSubscribed(response.data.subscribed)
 
@@ -49,7 +47,7 @@ function ChannelViewPlaylistPage(props) {
             <div className="channel_header">
               <div className="channeldet">
                 {" "}
-                <img src={channelImage} alt="" />
+                <img src={server+'/ChannelImages/'+channelId+".jpg"} alt="" />
                 <div className="aaa">
                   <h2>{channelName}</h2>
                   <p>
@@ -62,13 +60,9 @@ function ChannelViewPlaylistPage(props) {
                 onClick={() => {
                   axios
                     .post(
-                      server,"/unsubscribe",
-                      { channelId: props.location.state.channelId },
-                      {
-                        headers: {
-                          "x-access-token": localStorage.getItem("token"),
-                        },
-                      }
+                      server+"/unsubscribe",
+                      { channelId: props.location.state.channelId,token: localStorage.getItem("token") },
+                      
                     )
                     .then((response) => {
                       setSubscriberCount(response.data);
@@ -85,12 +79,8 @@ function ChannelViewPlaylistPage(props) {
                 {localStorage.getItem('token') ?axios
                     .post(
                       server,"/subscribe",
-                      { channelId:props.location.state.channelId },
-                      {
-                        headers: {
-                          "x-access-token": localStorage.getItem("token"),
-                        },
-                      }
+                      { channelId:props.location.state.channelId,token: localStorage.getItem("token") },
+
                     )
                     .then((response) => {
                       setSubscriberCount(response.data);

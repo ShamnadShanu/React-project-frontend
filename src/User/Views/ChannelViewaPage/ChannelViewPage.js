@@ -5,13 +5,12 @@ import "./ChannelViewPage.css";
 import Button from "@material-ui/core/Button";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
-// const server="http://localhost:8000/"
-const server="https://y-clone.xyz/"
+// const server="http://localhost:8000"
+const server="https://y-clone.xyz"
 
 function ChannelViewPage(props) {
     let history=useHistory()
   let [channelName, setChannelName] = useState();
-  let [channelImage, setChannelImage] = useState();
   let [channelId, setChannelId] = useState();
   let [subscribed,setSubscribed]=useState()
   let [subscriberCount, setSubscriberCount] = useState();
@@ -19,14 +18,13 @@ function ChannelViewPage(props) {
   useEffect(() => {
     axios
       .post(
-        server,"/channelview",
+        server+"/channelview",
         {
           channelId: props.location.state.channelId,token:localStorage.getItem("token")
         }
       )
       .then((response) => {
         setChannelName(response.data.response.channelName);
-        setChannelImage(response.data.response.channelImage);
         setChannelId(response.data.response._id);
         setSubscribed(response.data.subscribed)
 
@@ -47,7 +45,7 @@ function ChannelViewPage(props) {
           <div className="channel_header">
             <div className="channeldet">
               {" "}
-              <img src={channelImage} alt="" />
+              <img src={server+'/ChannelImages/'+channelId+".jpg"} alt="" />
               <div className="aaa">
                 <h2>{channelName}</h2>
                 <p>
@@ -60,13 +58,9 @@ function ChannelViewPage(props) {
               onClick={() => {
                 axios
                   .post(
-                    server,"/unsubscribe",
-                    { channelId: props.location.state.channelId },
-                    {
-                      headers: {
-                        "x-access-token": localStorage.getItem("token"),
-                      },
-                    }
+                    server+"/unsubscribe",
+                    { channelId: props.location.state.channelId,token: localStorage.getItem("token") },
+                    
                   )
                   .then((response) => {
                     setSubscriberCount(response.data);
@@ -82,13 +76,9 @@ function ChannelViewPage(props) {
               onClick={() => {
               {localStorage.getItem('token') ?axios
                   .post(
-                    server,"/subscribe",
-                    { channelId:props.location.state.channelId },
-                    {
-                      headers: {
-                        "x-access-token": localStorage.getItem("token"),
-                      },
-                    }
+                    server+"/subscribe",
+                    { channelId:props.location.state.channelId,token: localStorage.getItem("token") },
+                    
                   )
                   .then((response) => {
                     setSubscriberCount(response.data);

@@ -1,8 +1,8 @@
 import React from 'react'
 import Moment from 'react-moment';
 import './VideoRow.css'
-// const server="http://localhost:8000/"
-const server="https://y-clone.xyz/"
+// const server="http://localhost:8000"
+const server="https://y-clone.xyz"
 function VideoRow({views,description,timestamp,channel,title,image}) {
     function truncateText(selector, maxLength) {
         var truncated =selector
@@ -13,7 +13,7 @@ function VideoRow({views,description,timestamp,channel,title,image}) {
     }
     return (
         <div className="videoRow">
-            <img src={server,'/Thumbanails/'+image+".jpg"} alt="" />
+            <img src={server+'/Thumbanails/'+image+".jpg"} alt="" />
             <div className="videoRow__text">
                 <h3>{title}</h3>
                 <p className="videoRow__headline">

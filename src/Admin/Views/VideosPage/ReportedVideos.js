@@ -5,11 +5,13 @@ import Navbar from "../../Components/Navbar/Navbar";
 import { useEffect } from "react";
 import axios from "axios";
 import "./UserPage.css";
+// const server="http://localhost:8000/admin"
+const server="https://y-clone.xyz/admin"
 
 function ReportedVideos() {
   let [Reports, setReports] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:8000/admin/Reported").then((response) => {
+    axios.get(server+"/Reported").then((response) => {
       console.log(response.data);
       setReports(response.data);
     });
@@ -38,7 +40,7 @@ function ReportedVideos() {
                   <td
                     onClick={() => {
                       axios
-                        .get("http://localhost:8000/admin/video-unblock", {
+                        .get(server+"/video-unblock", {
                           params: {
                             id: item._id,
                           },
@@ -55,7 +57,7 @@ function ReportedVideos() {
                   <td
                     onClick={() => {
                       axios
-                        .get("http://localhost:8000/admin/video-block", {
+                        .get(server+"/video-block", {
                           params: {
                             id: item._id,
                           },

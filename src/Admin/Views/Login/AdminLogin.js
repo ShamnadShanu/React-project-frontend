@@ -6,6 +6,8 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 
+// const server="http://localhost:8000/admin"
+const server="https://y-clone.xyz/admin"
 export default function AdminLogin() {
 let [Error,setError]=useState('')
 let [email,setEmail]=useState('')
@@ -17,7 +19,7 @@ let [pass,setPass]=useState('')
         <h1> ADMIN LOGIN </h1>
         <form onSubmit={(e)=>{
           e.preventDefault()
-axios.post('http://localhost:8000/admin/login',{
+axios.post(server+'/login',{
   email:email,
   password:pass
 }).then(async(data)=>{

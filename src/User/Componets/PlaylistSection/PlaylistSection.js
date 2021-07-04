@@ -12,7 +12,7 @@ function PlaylistSection(props) {
   useEffect(() => {
     axios
       .post(
-        server,"/Channel_view-playlist",
+        server+"/Channel_view-playlist",
         { data: props.channelId,token:localStorage.getItem("token") }
       )
       .then((response) => {

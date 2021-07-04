@@ -5,11 +5,13 @@ import Navbar from "../../Components/Navbar/Navbar";
 import { useEffect } from "react";
 import axios from "axios";
 import "./UserPage.css";
+// const server="http://localhost:8000/admin"
+const server="https://y-clone.xyz/admin"
 
 function ChannelPage() {
     let [user, setUser] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:8000/admin/channels").then((response) => {
+    axios.get(server+"/channels").then((response) => {
       console.log(response.data);
       setUser(response.data);
     });
@@ -44,7 +46,7 @@ function ChannelPage() {
                   <td
                     onClick={() => {
                       axios
-                        .get("http://localhost:8000/admin/channel-verify", {
+                        .get(server+"/channel-verify", {
                           params: {
                             id: item._id,
                           },

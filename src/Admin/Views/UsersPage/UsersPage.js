@@ -5,11 +5,12 @@ import Navbar from "../../Components/Navbar/Navbar";
 import { useEffect } from "react";
 import axios from "axios";
 import "./UserPage.css";
-
+// const server="http://localhost:8000/admin"
+const server="https://y-clone.xyz/admin"
 function UsersPage() {
   let [user, setUser] = useState([]);
   useEffect(() => {
-    axios.get("http://34.126.78.179/admin/users").then((response) => {
+    axios.get(server+"/users").then((response) => {
       console.log(response.data);
       setUser(response.data);
     });
@@ -38,7 +39,7 @@ function UsersPage() {
                   <td
                     onClick={() => {
                       axios
-                        .get("http://localhost:8000/admin/user-unblock", {
+                        .get(server+"/user-unblock", {
                           params: {
                             id: item._id,
                           },
@@ -55,7 +56,7 @@ function UsersPage() {
                   <td
                     onClick={() => {
                       axios
-                        .get("http://localhost:8000/admin/user-block", {
+                        .get(server+"/user-block", {
                           params: {
                             id: item._id,
                           },

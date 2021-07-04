@@ -73,7 +73,7 @@ function Playlists(props) {
               data.append("visibility", visibility);
                data.append("channeId",props.channelId)
               axios
-                .post("/createPlaylist", data)
+                .post(server+"/createPlaylist", data)
                 .then((response) => {
                   if(response.data){
                     window.location.reload();
@@ -157,7 +157,7 @@ playlistId={that}
               }} style={{ minWidth: "9rem", maxHeight: "5rem" }} className="optuin">
                 {item.videos?<img
                   style={{ minWidth: "9rem", maxHeight: "5rem" }}
-                  src={server,'/Thumbanails/'+item.videos[item.videos.length-1]+".jpg"}
+                  src={server+'/Thumbanails/'+item.videos[item.videos.length-1]+".jpg"}
                   alt=""
                 />:<div style={{ minWidth: "9rem", maxHeight: "5rem" }}><p style={{marginLeft:"0"}}>No Videos</p></div>}
 
