@@ -29,7 +29,7 @@ min-width: 23rem;}
     color: black;
 }
 */
-.videoRow__tex h5{
+.videoRow__tex h5,p{
 margin:0;
 margin: 10px;
 color: black;

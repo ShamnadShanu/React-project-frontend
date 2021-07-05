@@ -8,6 +8,7 @@ import Button from "@material-ui/core/Button";
 import axios from "axios";
 import Moment from "react-moment";
 import { useHistory } from "react-router";
+import VerifiedIcon from "@material-ui/icons/CheckCircleOutlineOutlined"
 import ReportIcon from "@material-ui/icons/Report";
 import { Link } from "react-router-dom";
 import NotificationsIcon from "@material-ui/icons/Notifications";
@@ -34,6 +35,7 @@ function VideoInfo(props) {
   let [likeCount, setLikeCount] = useState(0);
   let [dislikeCount, setDislikeCount] = useState(0);
   let [views, setViews] = useState();
+  let [verified,setVerified]=useState()
   function truncateText(item) {
     if (item.title.length > 67) {
       var truncated = item.title.substr(0, 60) + "...";
@@ -60,7 +62,7 @@ function VideoInfo(props) {
       .post(
         server+
         "/getLikes",
-        { videoId: props.props._id ,token:localStorage.getItem("token")},
+        { videoId: props.props._id },
       )
       .then((response) => {
         console.log(response.data);
@@ -77,6 +79,17 @@ function VideoInfo(props) {
     } else {
       setViews(0);
     }
+    axios
+      .post(
+        server+"/channelview",
+        {
+          channelId: props.props.channelId,token:localStorage.getItem("token")
+        }
+      ).then((response)=>{
+setVerified(response.data.response.verified)
+      })
+      
+
   }, []);
   return (
     <div className="video-info">
@@ -303,7 +316,7 @@ function VideoInfo(props) {
               },
             }}
           >
-            <h4>{props.props.channelName}</h4>{" "}
+              <h4>{props.props.channelName}{verified&&<VerifiedIcon style={{width:"15px"}}/>}</h4>{" "}
           </Link>
 
           <p>

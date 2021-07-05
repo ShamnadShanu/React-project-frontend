@@ -21,7 +21,7 @@ function ChannelRow({subscribed,channelId,image,channel,subs,verified,noOfVideos
             }}>
                 <Avatar className="channelRow__logo" alt={channel} src={server+'/ChannelImages/'+channelId+".jpg"}/>
             <div className="channelRow__text">
-                <h4>{channel} {verified && <VerifiedIcon/>}</h4>
+                <h4>{channel} {verified && <VerifiedIcon style={{width:"15px"}}/>}</h4>
                 <p>{subscriberCount?subscriberCount:subs} Subscribers . {noOfVideos} Videos</p> 
                 <p>{description}</p>
             </div>

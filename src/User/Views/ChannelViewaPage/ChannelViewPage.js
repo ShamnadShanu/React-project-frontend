@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import VerifiedIcon from "@material-ui/icons/CheckCircleOutlineOutlined"
+import ChannelHome from "../../Componets/ChannelHome/ChannelHome";
 
 // const server="http://localhost:8000"
 const server="https://y-clone.xyz"
@@ -16,6 +17,7 @@ function ChannelViewPage(props) {
   let [channelId, setChannelId] = useState();
   let [subscribed,setSubscribed]=useState()
   let [subscriberCount, setSubscriberCount] = useState();
+  let [verfied,setVerified]=useState()
 
   useEffect(() => {
     axios
@@ -29,6 +31,7 @@ function ChannelViewPage(props) {
         setChannelName(response.data.response.channelName);
         setChannelId(response.data.response._id);
         setSubscribed(response.data.subscribed)
+        setVerified(response.data.response.verfied)
 
         if (response.data.response.subscribers) {
           setSubscriberCount(response.data.response.subscribers.length);
@@ -49,7 +52,7 @@ function ChannelViewPage(props) {
               {" "}
               <img src={server+'/ChannelImages/'+channelId+".jpg"} alt="" />
               <div className="aaa">
-                <h2>{channelName} {props.location.state.verified && <VerifiedIcon/>}</h2>
+                <h2>{channelName} {verfied&& <VerifiedIcon/>}</h2>
                 <p>
                   <span>{subscriberCount}</span> Subscribers
                 </p>
@@ -120,7 +123,7 @@ function ChannelViewPage(props) {
             </Link>
           </div>
           <div className="channel_content-h">
-
+<ChannelHome channelId={channelId}/>
           </div>
         </div>
       </div>
