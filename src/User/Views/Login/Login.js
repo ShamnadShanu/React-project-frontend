@@ -10,6 +10,7 @@ import { useState } from "react";
 const server="https://y-clone.xyz"
 
 export default function Login(props) {
+  console.log(props,"loginnnnnnnnnnnn");
   let [Error, setError] = useState("");
   let [email, setEmail] = useState("");
   let [pass, setPass] = useState("");
@@ -51,7 +52,7 @@ setBlock("This account is blocked")
                 axios
                 .post(
                   server+"/like",
-                  { videoId: props.props.props.item._id,token:localStorage.getItem("token") },
+                  { videoId: location.state.redl._id,token:localStorage.getItem("token") },
                   
                 )
                 .then((response) => {
@@ -63,7 +64,7 @@ setBlock("This account is blocked")
                 axios
                 .post(
                   server+"/dislike",
-                  { videoId: props.props.props.item._id ,token:localStorage.getItem("token")}
+                  { videoId: location.state.reds._id ,token:localStorage.getItem("token")}
                   
                 )
                 .then((response) => {
