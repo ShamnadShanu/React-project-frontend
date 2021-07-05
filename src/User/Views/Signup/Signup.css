@@ -16,7 +16,7 @@ height:25rem;
 .signup_form{
     box-shadow: 3px 3px 15px;
     height: 460px;
-    width: 400px;
+    min-width: 20rem;
     position: absolute;
     left: 50%;
     top: 50%;
