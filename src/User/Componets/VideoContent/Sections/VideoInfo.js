@@ -11,8 +11,6 @@ import { useHistory } from "react-router";
 import VerifiedIcon from "@material-ui/icons/CheckCircleOutlineOutlined"
 import ReportIcon from "@material-ui/icons/Report";
 import { Link } from "react-router-dom";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
 import Popover from "@material-ui/core/Popover";
 import Typography from "@material-ui/core/Typography";
 import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -25,7 +23,6 @@ function VideoInfo(props) {
   let [Error, setError] = useState();
   let [copy, setCopy] = useState();
   let [True, setTrue] = useState();
-  const [enabled, setEnabled] = useState();
   let [more, setMore] = useState(false);
   let history = useHistory();
   let [subCount, setSubCount] = useState();
@@ -62,7 +59,7 @@ function VideoInfo(props) {
       .post(
         server+
         "/getLikes",
-        { videoId: props.props._id },
+        { videoId: props.props._id ,token:localStorage.getItem("token")},
       )
       .then((response) => {
         console.log(response.data);
@@ -389,21 +386,7 @@ setVerified(response.data.response.verified)
               >
                 SUBSCRIBED
               </Button>
-              {enabled ? (
-                <NotificationsActiveIcon
-                  onClick={() => {
-                    setEnabled(false);
-                  }}
-                  style={{ marginLeft: "10px", color: "blue" }}
-                />
-              ) : (
-                <NotificationsIcon
-                  onClick={() => {
-                    setEnabled(true);
-                  }}
-                  style={{ marginLeft: "10px" }}
-                />
-              )}
+              
             </>
           ) : (
             <Button

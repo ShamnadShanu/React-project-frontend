@@ -44,12 +44,8 @@ function Signup() {
             axios
               .post(
                 server+"/subscribe",
-                { channelId: location.state.red.channelId },
-                {
-                  headers: {
-                    "x-access-token": localStorage.getItem("token"),
-                  },
-                }
+                { channelId: location.state.red.channelId,token:localStorage.getItem("token") },
+                
               )
               .then((response) => {
                 history.push({
@@ -60,13 +56,9 @@ function Signup() {
           } else if (location.state.redl) {
             axios
               .post(
-                server,"/like",
-                { videoId:location.state.redl._id },
-                {
-                  headers: {
-                    "x-access-token": localStorage.getItem("token"),
-                  },
-                }
+                server+"/like",
+                { videoId:location.state.redl._id,token:localStorage.getItem("token") },
+                
               )
               .then((response) => {
                 history.push({
@@ -77,13 +69,9 @@ function Signup() {
           } else if (location.state.reds) {
             axios
               .post(
-                server,"/dislike",
-                { videoId: location.state.reds._id },
-                {
-                  headers: {
-                    "x-access-token": localStorage.getItem("token"),
-                  },
-                }
+                server+"/dislike",
+                { videoId: location.state.reds._id ,token:localStorage.getItem("token")},
+              
               )
               .then((response) => {
                 history.push({
@@ -121,13 +109,9 @@ function Signup() {
           if (location.state.red) {
             axios
               .post(
-                server,"subscribe",
-                { channelId: location.state.red.channelId },
-                {
-                  headers: {
-                    "x-access-token": localStorage.getItem("token"),
-                  },
-                }
+                server+"subscribe",
+                { channelId: location.state.red.channelId ,token:localStorage.getItem("token")},
+               
               )
               .then((response) => {
                 history.push({
@@ -137,13 +121,9 @@ function Signup() {
           } else if (location.state.redl) {
             axios
               .post(
-                server,"/like",
-                { videoId: location.state.redl._id },
-                {
-                  headers: {
-                    "x-access-token": localStorage.getItem("token"),
-                  },
-                }
+                server+"/like",
+                { videoId: location.state.redl._id ,token:localStorage.getItem("token")},
+                
               )
               .then((response) => {
                 history.push({
@@ -154,13 +134,9 @@ function Signup() {
           } else if (location.state.reds) {
             axios
               .post(
-                server,"/dislike",
-                { videoId: location.state.reds._id },
-                {
-                  headers: {
-                    "x-access-token": localStorage.getItem("token"),
-                  },
-                }
+                server+"/dislike",
+                { videoId: location.state.reds._id,token:localStorage.getItem("token") },
+               
               )
               .then((response) => {
                 history.push({
@@ -202,7 +178,7 @@ function Signup() {
           onSubmit={(e) => {
             e.preventDefault();
             console.log("fd");
-            axios.post(server,"/signup", data).then((data) => {
+            axios.post(server+"/signup", data).then((data) => {
               if (data.data) {
                 console.log(data.data);
                 localStorage.setItem("token", data.data.token);
@@ -212,13 +188,9 @@ function Signup() {
                   if (location.state.red) {
                     axios
                       .post(
-                        server,"/subscribe",
-                        { channelId: location.state.red.channelId },
-                        {
-                          headers: {
-                            "x-access-token": localStorage.getItem("token"),
-                          },
-                        }
+                        server+"/subscribe",
+                        { channelId: location.state.red.channelId,token:localStorage.getItem("token") },
+                        
                       )
                       .then((response) => {
                         history.push({
@@ -229,13 +201,9 @@ function Signup() {
                   } else if (location.state.redl) {
                     axios
                       .post(
-                        server,"/like",
-                        { videoId:location.state.redl._id },
-                        {
-                          headers: {
-                            "x-access-token": localStorage.getItem("token"),
-                          },
-                        }
+                        server+"/like",
+                        { videoId:location.state.redl._id ,token:localStorage.getItem("token")},
+                       
                       )
                       .then((response) => {
                         history.push({
@@ -246,13 +214,9 @@ function Signup() {
                   } else if (location.state.reds) {
                     axios
                       .post(
-                        server,"/dislike",
-                        { videoId: location.state.reds._id },
-                        {
-                          headers: {
-                            "x-access-token": localStorage.getItem("token"),
-                          },
-                        }
+                        server+"/dislike",
+                        { videoId: location.state.reds._id,token:localStorage.getItem("token") },
+                       
                       )
                       .then((response) => {
                         history.push({

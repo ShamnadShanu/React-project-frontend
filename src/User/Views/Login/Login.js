@@ -39,12 +39,8 @@ setBlock("This account is blocked")
                 axios
                 .post(
                   server+"/subscribe",
-                  { channelId:location.state.red.channelId},
-                  {
-                    headers: {
-                      "x-access-token": localStorage.getItem("token"),
-                    },
-                  }
+                  { channelId:location.state.red.channelId,token:localStorage.getItem("token")}
+                 
                 )
                 .then((response) => {
                   history.push({
@@ -55,12 +51,8 @@ setBlock("This account is blocked")
                 axios
                 .post(
                   server+"/like",
-                  { videoId: props.props.props.item._id },
-                  {
-                    headers: {
-                      "x-access-token": localStorage.getItem("token"),
-                    },
-                  }
+                  { videoId: props.props.props.item._id,token:localStorage.getItem("token") },
+                  
                 )
                 .then((response) => {
                   history.push({
@@ -71,12 +63,8 @@ setBlock("This account is blocked")
                 axios
                 .post(
                   server+"/dislike",
-                  { videoId: props.props.props.item._id },
-                  {
-                    headers: {
-                      "x-access-token": localStorage.getItem("token"),
-                    },
-                  }
+                  { videoId: props.props.props.item._id ,token:localStorage.getItem("token")}
+                  
                 )
                 .then((response) => {
                   history.push({
@@ -119,12 +107,8 @@ setBlock("This account is blocked")
           axios
           .post(
             server+"/subscribe",
-            { channelId:location.state.red.channelId},
-            {
-              headers: {
-                "x-access-token": localStorage.getItem("token"),
-              },
-            }
+            { channelId:location.state.red.channelId,token:localStorage.getItem("token")},
+            
           )
           .then((response) => {
             history.push({
@@ -149,12 +133,8 @@ setBlock("This account is blocked")
           axios
           .post(
             server+"/dislike",
-            { videoId: location.state.reds._id },
-            {
-              headers: {
-                "x-access-token": localStorage.getItem("token"),
-              },
-            }
+            { videoId: location.state.reds._id,token:localStorage.getItem("token") },
+           
           )
           .then((response) => {
             history.push({
@@ -220,12 +200,8 @@ setBlock("This account is blocked")
                         axios
                         .post(
                           server+"/subscribe",
-                          { channelId:location.state.red.channelId},
-                          {
-                            headers: {
-                              "x-access-token": localStorage.getItem("token"),
-                            },
-                          }
+                          { channelId:location.state.red.channelId,token:localStorage.getItem("token")},
+                          
                         )
                         .then((response) => {
                           history.push({
@@ -237,12 +213,7 @@ setBlock("This account is blocked")
                         axios
                         .post(
                           server+"/like",
-                          { videoId: location.state.redl._id },
-                          {
-                            headers: {
-                              "x-access-token": localStorage.getItem("token"),
-                            },
-                          }
+                          { videoId: location.state.redl._id ,token:localStorage.getItem("token")}
                         )
                         .then((response) => {
                           history.push({
@@ -253,12 +224,8 @@ setBlock("This account is blocked")
                         axios
                         .post(
                           server+"/dislike",
-                          { videoId: location.state.reds._id },
-                          {
-                            headers: {
-                              "x-access-token": localStorage.getItem("token"),
-                            },
-                          }
+                          { videoId: location.state.reds._id,token:localStorage.getItem("token") },
+                          
                         )
                         .then((response) => {
                           history.push({
