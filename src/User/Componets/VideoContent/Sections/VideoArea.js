@@ -13,7 +13,7 @@ function VideoArea(props) {
   useEffect(() => {
     axios.post(
       server+"/views",
-      { videoId: props.props._id } );
+      { videoId: props.props._id,token:localStorage.getItem("token") } );
   }, []);
   return (
     <>
