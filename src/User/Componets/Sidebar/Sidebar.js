@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SidebarRow from '../SidebarRow/SidebarRow'
 import './Sidebar.css'
 import HomeIcon from '@material-ui/icons/Home'
@@ -12,23 +12,21 @@ import ThumpUpAltOutlinedIcon from '@material-ui/icons/ThumbUpAltOutlined'
 import { Link } from 'react-router-dom'
 // import WatchLater from '@material-ui/icons/WatchLater'
 
-
-
-export default function Sidebar() {
+export default function Sidebar({Home,Subscription,Liked,Your}) {
     return (
         <div className="sidebar">
-            <Link className="don" to="/"><SidebarRow Selected title="Home" Icon={HomeIcon}/></Link>
+            <Link className="don" to="/"><SidebarRow Selected={Home} title="Home" Icon={HomeIcon}/></Link>
             <Link className="don" to="/subscriptions">
-            <SidebarRow title="Subscription" Icon={SubscriptionIcon}/>
+            <SidebarRow Selected={Subscription}  title="Subscription" Icon={SubscriptionIcon}/>
             </Link>
                         <hr/>
             {/* <SidebarRow title="Library" Icon={videoLibraryIcon}/> */}
             {/* <SidebarRow title="History" Icon={HistoryIcon}/> */}
-<Link className="don" to="/channelvideos">            <SidebarRow title="Your videos" onClick={()=>{
+<Link className="don" to="/channelvideos">            <SidebarRow Selected={Your} title="Your videos" onClick={()=>{
 }} Icon={OndemandVideoIcon}/>
 </Link>            {/* <SidebarRow title="Watch Later" Icon={WatchLater}/> */}
 <Link className="don" to="/liked-videos">
-<SidebarRow  title="Liked Videos" Icon={ThumpUpAltOutlinedIcon}/>
+<SidebarRow Selected={Liked}  title="Liked Videos" Icon={ThumpUpAltOutlinedIcon}/>
 
 </Link>
             {/* <SidebarRow title="Show More" Icon={ExpandMoreOutlinedIcon}/> */}

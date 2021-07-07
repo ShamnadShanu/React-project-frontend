@@ -9,7 +9,6 @@ function App() {
       <Router>
         <Route path="/" component={User}></Route>
         <Route  path="/admin" component={Admin}></Route>
-
       </Router>
     </div>
   );

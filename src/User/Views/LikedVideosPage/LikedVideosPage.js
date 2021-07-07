@@ -9,7 +9,7 @@ function LikedVideosPage() {
         <div>
             <Header/>
             <div className="app_page">
-                <Sidebar/>
+                <Sidebar Liked={true}/>
                 <LikedVideos/>
             </div>
         </div>

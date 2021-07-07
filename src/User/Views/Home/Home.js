@@ -26,7 +26,7 @@ export default function Home() {
     <div className="home">
       <Header/>
       <div className="app_page">
-        <Sidebar/>
+        <Sidebar Home={true}/>
           <RecomentedVideo/>
       </div>
     </div>

@@ -8,7 +8,7 @@ function SubscriptionPage() {
         <div>
             <Header/>
             <div className="app_page">
-                <Sidebar/>
+                <Sidebar Subscription={true}/>
                 <Subscription/>
             </div>
         </div>

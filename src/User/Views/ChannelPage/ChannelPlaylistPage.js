@@ -31,7 +31,7 @@ function ChannelPlaylistPage() {
     <div className="channel_page">
       <Header />
       <div className="channel_container">
-        <Sidebar />
+        <Sidebar Your={true} />
         <div className="channel_bodyy">
           <div className="channel_header">
             <div className="channeldet">
