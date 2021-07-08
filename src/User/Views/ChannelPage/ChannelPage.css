@@ -3,7 +3,7 @@
 }
 .channel_container {
   display: flex;
-  min-width:50rem;
+  min-width:70rem;
 }
 .channel_bodyy {
   background-color:#f9f9f9;
