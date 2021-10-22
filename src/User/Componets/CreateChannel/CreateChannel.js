@@ -45,6 +45,7 @@ function CreateChannel(props) {
             // const data = new FormData();
             // data.append("channelName", Cname);
             // data.append("channelImage", channelIMG);
+            
             // data.append("token",localStorage.getItem("token"))
             
             console.log(data);
