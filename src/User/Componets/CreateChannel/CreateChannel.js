@@ -39,10 +39,13 @@ function CreateChannel(props) {
         <div className="footer">
         <p style={{flex:"0.5",cursor:"pointer"}}>CANCEL</p>
         <p onClick={()=>{
-            const data = new FormData();
-            data.append("channelName", Cname);
-            data.append("channelImage", channelIMG);
-            data.append("token",localStorage.getItem("token"))
+           data.channelName=Cname
+            data.channelImage=channelIMG
+            data.token=localStorage.getItem("token")
+            // const data = new FormData();
+            // data.append("channelName", Cname);
+            // data.append("channelImage", channelIMG);
+            // data.append("token",localStorage.getItem("token"))
             
             console.log(data);
             axios.post(server+'/createChannel',data,config).then((data)=>{
